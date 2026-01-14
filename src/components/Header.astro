@@ -1,5 +1,6 @@
 ---
 import { translations } from '../translations';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 ---
 
 <header class="sticky top-0 z-50 bg-med-cream/90 backdrop-blur-md border-b border-med-clay">
@@ -15,6 +16,8 @@ import { translations } from '../translations';
             </ul>
 
             <div class="flex items-center space-x-3 sm:space-x-5">
+                <LanguageSwitcher />
+
                 {/* Cart Button - Hidden on very small screens */}
                 <button class="relative hidden sm:block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,8 +43,8 @@ import { translations } from '../translations';
                 <li><a href="#contact" class="block py-2 hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
             </ul>
 
-            {/* Language Switcher in Mobile Menu */}
-            <div class="mt-4 pt-4 border-t border-med-clay">
+            {/* Language Switcher in Mobile Menu - Hidden on larger screens */}
+            <div class="lg:hidden mt-4 pt-4 border-t border-med-clay">
                 <div class="space-y-3">
                     <span class="text-sm uppercase tracking-widest text-stone-600 font-medium">Language</span>
                     <div class="grid grid-cols-5 gap-2">
