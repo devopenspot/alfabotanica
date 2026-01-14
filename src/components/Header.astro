@@ -1,0 +1,29 @@
+---
+import { translations } from '../translations';
+---
+
+<header class="sticky top-0 z-50 bg-med-cream/90 backdrop-blur-md border-b border-med-clay">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-widest text-med-sage uppercase">alfabotánica</div>
+        <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+            <li><a href="#shop" class="hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
+            <li><a href="#philosophy" class="hover:text-med-terracotta transition" data-lang-target="roots">{translations.es.roots}</a></li>
+            <li><a href="#contact" class="hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
+        </ul>
+        <div class="flex items-center space-x-5">
+            <div class="flex items-center space-x-2 text-sm uppercase tracking-widest">
+                <button class="language-btn active" data-lang="es">ES</button>
+                <button class="language-btn" data-lang="en">EN</button>
+                <button class="language-btn" data-lang="fr">FR</button>
+                <button class="language-btn" data-lang="it">IT</button>
+                <button class="language-btn" data-lang="zh">中文</button>
+            </div>
+            <button class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span class="absolute -top-1 -right-1 bg-med-terracotta text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </nav>
+</header>
