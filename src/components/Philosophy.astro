@@ -2,21 +2,32 @@
 import { translations } from '../translations';
 ---
 
-<section id="philosophy" class="bg-stone-100 py-24">
-    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-        <div class="order-2 md:order-1">
-            <img src="https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80" alt="Botanical process" class="rounded-sm">
-        </div>
-        <div class="order-1 md:order-2">
-            <h2 class="text-4xl mb-6 italic" data-lang-target="philosophyTitle">{translations.es.philosophyTitle}</h2>
-            <p class="text-stone-600 leading-relaxed mb-6" data-lang-target="philosophyText">
-                {translations.es.philosophyText}
-            </p>
-            <ul class="space-y-4">
-                <li class="flex items-center text-sm uppercase tracking-widest"><span class="w-4 h-px bg-med-terracotta mr-3"></span> <span data-lang-target="organicCertified">{translations.es.organicCertified}</span></li>
-                <li class="flex items-center text-sm uppercase tracking-widest"><span class="w-4 h-px bg-med-terracotta mr-3"></span> <span data-lang-target="plasticFree">{translations.es.plasticFree}</span></li>
-                <li class="flex items-center text-sm uppercase tracking-widest"><span class="w-4 h-px bg-med-terracotta mr-3"></span> <span data-lang-target="veganCrueltyFree">{translations.es.veganCrueltyFree}</span></li>
-            </ul>
+<section id="philosophy" class="bg-stone-100 py-16 sm:py-20 lg:py-24">
+    <div class="container mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <img src="https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80" alt="Botanical process" class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-sm shadow-sm">
+            </div>
+            <div class="order-1 lg:order-2 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6 italic leading-tight" data-lang-target="philosophyTitle">{translations.es.philosophyTitle}</h2>
+                <p class="text-stone-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base" data-lang-target="philosophyText">
+                    {translations.es.philosophyText}
+                </p>
+                <ul class="space-y-3 sm:space-y-4">
+                    <li class="flex items-center justify-center lg:justify-start text-xs sm:text-sm uppercase tracking-widest">
+                        <span class="w-3 sm:w-4 h-px bg-med-terracotta mr-2 sm:mr-3"></span>
+                        <span data-lang-target="organicCertified">{translations.es.organicCertified}</span>
+                    </li>
+                    <li class="flex items-center justify-center lg:justify-start text-xs sm:text-sm uppercase tracking-widest">
+                        <span class="w-3 sm:w-4 h-px bg-med-terracotta mr-2 sm:mr-3"></span>
+                        <span data-lang-target="plasticFree">{translations.es.plasticFree}</span>
+                    </li>
+                    <li class="flex items-center justify-center lg:justify-start text-xs sm:text-sm uppercase tracking-widest">
+                        <span class="w-3 sm:w-4 h-px bg-med-terracotta mr-2 sm:mr-3"></span>
+                        <span data-lang-target="veganCrueltyFree">{translations.es.veganCrueltyFree}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>

@@ -2,14 +2,14 @@
 import { translations } from '../translations';
 ---
 
-<section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+<section class="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1502472992487-44c11306443c?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40"></div>
     </div>
-    <div class="relative z-10 text-center px-6">
-        <span class="uppercase tracking-[0.3em] text-sm mb-4 block" data-lang-target="heroSubtitle">{translations.es.heroSubtitle}</span>
-        <h1 class="text-5xl md:text-7xl mb-6" data-lang-target="heroTitle">{translations.es.heroTitle}</h1>
-        <p class="max-w-md mx-auto mb-8 text-stone-600" data-lang-target="heroDescription">{translations.es.heroDescription}</p>
-        <a href="#shop" class="inline-block bg-med-sage text-white px-10 py-4 uppercase tracking-widest text-xs hover:bg-stone-800 transition" data-lang-target="exploreCollection">{translations.es.exploreCollection}</a>
+    <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+        <span class="uppercase tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm mb-3 sm:mb-4 block" data-lang-target="heroSubtitle">{translations.es.heroSubtitle}</span>
+        <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-tight" data-lang-target="heroTitle">{translations.es.heroTitle}</h1>
+        <p class="max-w-xs sm:max-w-md lg:max-w-lg mx-auto mb-6 sm:mb-8 text-stone-600 text-sm sm:text-base leading-relaxed px-2" data-lang-target="heroDescription">{translations.es.heroDescription}</p>
+        <a href="#shop" class="inline-block bg-med-sage text-white px-6 sm:px-10 py-3 sm:py-4 uppercase tracking-widest text-xs hover:bg-stone-800 transition-all duration-300 transform hover:scale-105" data-lang-target="exploreCollection">{translations.es.exploreCollection}</a>
     </div>
 </section>
