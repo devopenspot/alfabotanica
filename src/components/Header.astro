@@ -6,7 +6,7 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 <header class="sticky top-0 z-50 bg-med-cream/90 backdrop-blur-md border-b border-med-clay">
     <nav class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex justify-between items-center">
-            <a href="/" class="hover:text-green-900 transition text-xl sm:text-2xl font-bold tracking-widest text-med-sage uppercase">alfabotánica</a>
+            <a href="" class="hover:text-green-900 transition text-xl sm:text-2xl font-bold tracking-widest text-med-sage uppercase">alfabotánica</a>
 
             {/* Desktop Navigation */}
             <ul class="hidden lg:flex space-x-8 text-sm uppercase tracking-widest">
@@ -15,8 +15,7 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
                 <li><a href="#contact" class="text-green-700  hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
             </ul>
 
-            <div class="flex items-center space-x-3 sm:space-x-5">
-                <LanguageSwitcher />
+            <!-- <div class="flex items-center space-x-3 sm:space-x-5">
 
                 {/* Cart Button - Hidden on very small screens */}
                 <button class="relative hidden sm:block">
@@ -25,14 +24,14 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
                     </svg>
                     <span class="absolute -top-1 -right-1 bg-med-terracotta text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
                 </button>
-
-                {/* Mobile Menu Button */}
-                <button class="lg:hidden p-2" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+            </div> -->
+			
+			 {/* Mobile Menu Button */}
+			<button class="lg:hidden p-2" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+				</svg>
+			</button>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -44,7 +43,7 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
             </ul>
 
             {/* Language Switcher in Mobile Menu - Hidden on larger screens */}
-            <div class="lg:hidden mt-4 pt-4 border-t border-med-clay">
+            <!-- <div class="lg:hidden mt-4 pt-4 border-t border-med-clay">
                 <div class="space-y-3">
                     <span class="text-sm uppercase tracking-widest text-stone-600 font-medium">Language</span>
                     <div class="grid grid-cols-5 gap-2">
@@ -55,17 +54,17 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
                         <button class="language-btn px-2 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:bg-med-sage hover:text-white text-xs font-medium" data-lang="zh">中文</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             {/* Mobile Cart Button */}
-            <div class="mt-4 pt-4 border-t border-med-clay">
+            <!-- <div class="mt-4 pt-4 border-t border-med-clay">
                 <button class="flex items-center space-x-2 text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
                     <span>Cart (0)</span>
                 </button>
-            </div>
+            </div> -->
         </div>
     </nav>
 
