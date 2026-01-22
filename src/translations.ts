@@ -5,13 +5,13 @@ export const translations = {
     "roots": "Sobre Nosotros",
     "contact": "Contacto",
 	// homepage
-    "heroSubtitle": "Botánica honesta para tu bienestar",
-    "heroTitle": "Cuidado personal con esencia natural",
+    "heroSubtitle": "Botánica para tu bienestar",
+    "heroTitle": "Cuidado personal natural",
     "heroDescription": "Productos diseñados para reconectar con lo esencial de forma consciente y respetuosa.",
     "exploreCollection": "Ver Nuestros Productos",
 	// Products Section
-    "openingCollection": "Productos",
-    "collectionSubtitle": "Esenciales botánicos para tu experiencia de cuidado diario.",
+    "openingCollection": "Galeria de Productos",
+    "collectionSubtitle": "Ofrecemos productos naturales para tu cuidado personal diario.",
     "productsAvailable": "6 Productos",
     "quickAdd": "Añadir al carrito",
     "rosemaryTonicTitle": "Tónico Capilar de Romero",
