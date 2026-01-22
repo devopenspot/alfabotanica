@@ -119,8 +119,7 @@ class LanguageSwitcher {
       if (philosophyText) philosophyText.textContent = langData.philosophyText;
 
       // Update philosophy list items
-      const organicCert = document.querySelector('[data-lang-target="organicCertified"]');
-      if (organicCert) organicCert.textContent = langData.organicCertified;
+
 
       const plasticFree = document.querySelector('[data-lang-target="plasticFree"]');
       if (plasticFree) plasticFree.textContent = langData.plasticFree;
