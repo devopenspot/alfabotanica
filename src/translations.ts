@@ -32,7 +32,7 @@ export const translations = {
     "shippingPolicy": "Envíos y Entregas",
     "contactUs": "Escríbenos",
     "stockists": "Puntos de Venta",
-    "copyright": "© 2026 alfabotánica. La esencia de lo natural.",
+    "copyright": "© 2026 Alfabotánica - Productos naturales.",
     "instagram": "Instagram",
     "pinterest": "Pinterest"
   }

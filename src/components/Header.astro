@@ -1,12 +1,18 @@
 ---
 import { translations } from '../translations';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import { Image } from 'astro:assets';
+import alfabotanicaImage from '../assets/img/alfabotanica.png';
 ---
 
 <header class="sticky top-0 z-50 bg-med-cream/90 backdrop-blur-md border-b border-med-clay">
     <nav class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex justify-between items-center">
-            <a href="" class="hover:text-green-900 transition text-xl sm:text-2xl font-bold tracking-widest text-med-sage uppercase">alfabotánica</a>
+            <a href="" class="w-64 sm:w-90 lg:w-96">
+				<Image src={alfabotanicaImage}
+					alt="Alfabotánica logo" 
+					class="w-full h-full" />
+			</a>
 
             {/* Desktop Navigation */}
             <ul class="hidden lg:flex space-x-8 text-sm uppercase tracking-widest">
