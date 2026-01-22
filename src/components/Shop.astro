@@ -1,10 +1,11 @@
 ---
 import { translations } from '../translations';
 import { Image } from 'astro:assets';
-import rosemaryImage from '../assets/rosemary.png';
-import chamomileImage from '../assets/chamomile.png';
-import creamImage from '../assets/cream.jpg';
-import solarScreenImage from '../assets/solar-screen.jpg';
+import rosemaryImage from '../assets/img/rosemary.png';
+import chamomileImage from '../assets/img/chamomile.png';
+import creamImage from '../assets/img/cream.png';
+import solarScreenImage from '../assets/img/solar-screen.png';
+import ortigaImage from '../assets/img/ortiga.png';
 ---
 
 <section id="shop" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
@@ -59,6 +60,17 @@ import solarScreenImage from '../assets/solar-screen.jpg';
             </div>
             <h3 class="text-lg sm:text-xl mb-1 leading-tight" data-lang-target="solarScreenTitle">{translations.es.solarScreenTitle}</h3>
             <p class="text-stone-500 text-xs sm:text-sm mb-4 leading-relaxed" data-lang-target="solarScreenDesc">{translations.es.solarScreenDesc}</p>
+        </article>
+
+		 <article class="group cursor-pointer">
+            <div class="aspect-[4/5] bg-stone-100 overflow-hidden mb-4 sm:mb-6 relative rounded-sm">
+                <Image src={ortigaImage} 
+				alt="Ortiga extract"
+                class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                <button class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 bg-white/90 py-2 sm:py-3 text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity rounded">Quick Add — $32</button>
+            </div>
+            <h3 class="text-lg sm:text-xl mb-1 leading-tight" data-lang-target="chamomileTonicTitle">{translations.es.chamomileTonicTitle}</h3>
+            <p class="text-stone-500 text-xs sm:text-sm mb-4 leading-relaxed" data-lang-target="chamomileTonicDesc">{translations.es.chamomileTonicDesc}</p>
         </article>
 
     </div>
