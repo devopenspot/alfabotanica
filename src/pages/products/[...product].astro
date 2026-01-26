@@ -5,7 +5,7 @@ import Products from '../../layouts/Product.astro';
 export async function getStaticPaths() {
 	const posts = await getCollection('products');
 	return posts.map((post) => ({
-		params: { slug: post.id },
+		params: { product: post.id },
 		props: post,
 	}));
 }

@@ -4,12 +4,27 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import oleatoImage from '../assets/img/oleato.png';
+import rosemaryImage from '../assets/img/tonico-capilar.png';
+import chamomileImage from '../assets/img/tonico-facial.png';
+import creamImage from '../assets/img/crema.png';
+import solarScreenImage from '../assets/img/protector-solar.png';
+import ortigaImage from '../assets/img/elixir.png';
+
+const productImages = {
+  'img/oleato.png': oleatoImage,
+  'img/tonico-capilar.png': rosemaryImage,
+  'img/tonico-facial.png': chamomileImage,
+  'img/crema.png': creamImage,
+  'img/protector-solar.png': solarScreenImage,
+  'img/elixir.png': ortigaImage
+};
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { name, description, image, ...rest } = Astro.props;
+const { name, description, image, price, ...rest } = Astro.props;
 const title = name;
-const heroImage = image;
+const heroImage = productImages[image as keyof typeof productImages];
 ---
 
 <html lang="en">
@@ -53,22 +68,49 @@ const heroImage = image;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.price-section {
+				text-align: center;
+				margin-bottom: 1em;
+			}
+			.price {
+				font-size: 1.5em;
+				font-weight: bold;
+				color: rgb(var(--gray-dark));
+			}
+			.back-link {
+				padding: 1em;
+				text-align: center;
+			}
+			.back-link a {
+				color: rgb(var(--gray));
+				text-decoration: none;
+			}
+			.back-link a:hover {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 
 	<body>
 		<Header />
 		<main>
+			<div class="back-link">
+				<a href="/#shop">&larr; Volver a la tienda</a>
+			</div>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt={title} loading="lazy" />}
 				</div>
 				<div class="prose">
 					<div class="title">
-					
 						<h1>{title}</h1>
 						<hr />
 					</div>
+					{price && (
+						<div class="price-section">
+							<p class="price">${price}</p>
+						</div>
+					)}
 					<slot />
 				</div>
 			</article>
