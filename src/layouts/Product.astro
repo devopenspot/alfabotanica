@@ -4,6 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import oleatoImage from '../assets/img/oleato.png';
 import rosemaryImage from '../assets/img/tonico-capilar.png';
 import chamomileImage from '../assets/img/tonico-facial.png';
@@ -22,7 +23,7 @@ const productImages = {
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { name, description, image, price, ...rest } = Astro.props;
+const { id, name, description, image, price, ...rest } = Astro.props;
 const title = name;
 const heroImage = productImages[image as keyof typeof productImages];
 ---
@@ -89,11 +90,23 @@ const heroImage = productImages[image as keyof typeof productImages];
 				text-decoration: underline;
 			}
 		</style>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Product",
+			"name": name,
+			"description": description,
+			"image": heroImage ? new URL(heroImage.src, Astro.site).toString() : "",
+			"offers": {
+				"@type": "Offer",
+				"price": price,
+				"priceCurrency": "USD"
+			}
+		})} />
 	</head>
 
 	<body>
 		<Header />
-		<main>
+		<main transition:persist="main-content">
 			<div class="back-link">
 				<a href="/#shop">&larr; Volver a la tienda</a>
 			</div>
@@ -111,9 +124,16 @@ const heroImage = productImages[image as keyof typeof productImages];
 							<p class="price">${price}</p>
 						</div>
 					)}
+					<div class="whatsapp-section" style="margin-bottom: 1em;">
+						<WhatsAppButton productName={name} sku={id.toString()} />
+					</div>
 					<slot />
 				</div>
 			</article>
+			<section class="related-products" style="margin-top: 2em; padding: 1em;">
+				<h2>Productos Relacionados</h2>
+				<p>Próximamente: otros productos de la colección.</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
