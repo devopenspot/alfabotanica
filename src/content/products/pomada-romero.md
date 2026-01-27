@@ -1,18 +1,17 @@
 ---
-id: 4
-name: "Crema Analgésica"
+id: 3
+name: "Pomada"
+title: "Herbal"
 description: "Una crema calmante diseñada para aliviar molestias musculares y articulares. Contiene ingredientes antiinflamatorios naturales."
 price: 28
 image: "img/crema.png"
 benefits:
   - "Activa la circulación"
-  - "Acción antioxidante"
   - "Alivia tensiones musculares"
   - "Aroma herbal"
   - "Absorción rápida"
 extracts:
   - "Romero"
-  - "Manzanilla"
 ---
 
 ## Descripción

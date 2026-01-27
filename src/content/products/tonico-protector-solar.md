@@ -1,6 +1,7 @@
 ---
 id: 5
-name: "Protector Solar"
+name: "Tónico"
+title: "Protector Solar"
 description: "Una pantalla protectora para proteger tu piel de los rayos UV dañinos. Fórmula ligera y no grasa."
 price: 35
 image: "img/protector-solar.png"
@@ -11,7 +12,6 @@ benefits:
   - "Resistente al agua para actividades al aire libre"
 extracts:
   - "Caléndula"
-  - "Aloe vera"
 ---
 
 ## Descripción
