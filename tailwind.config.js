@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      fontFamily: {
+        'lora': ['Lora', 'serif'],
+      },
       colors: {
         'med-cream': '#f5f5dc',
         'med-sage': '#b2ac88',
