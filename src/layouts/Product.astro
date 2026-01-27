@@ -31,65 +31,6 @@ const heroImage = productImages[image as keyof typeof productImages];
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-			.price-section {
-				text-align: center;
-				margin-bottom: 1em;
-			}
-			.price {
-				font-size: 1.5em;
-				font-weight: bold;
-				color: rgb(var(--gray-dark));
-			}
-			.back-link {
-				padding: 1em;
-				text-align: center;
-			}
-			.back-link a {
-				color: rgb(var(--gray));
-				text-decoration: none;
-			}
-			.back-link a:hover {
-				text-decoration: underline;
-			}
-		</style>
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Product",
@@ -106,34 +47,34 @@ const heroImage = productImages[image as keyof typeof productImages];
 
 	<body>
 		<Header />
-		<main transition:persist="main-content">
-			<div class="back-link">
-				<a href="/#shop">&larr; Volver a la tienda</a>
+		<main transition:persist="main-content" class="">
+			<div class="p-4 text-center">
+				<a href="/#shop" class="text-[rgb(var(--gray))] no-underline hover:underline">&larr; Volver a la tienda</a>
 			</div>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={800} height={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} />}
+				<div class="max-w-[800px] mx-auto w-full">
+					{heroImage && <Image width={800} height={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} class="block max-w-full h-auto rounded-xl shadow-[var(--box-shadow)]" />}
 				</div>
-				<div class="prose">
-					<div class="title">
-						<h1>{title}</h1>
+				<div class="prose w-[720px] max-w-[calc(100%-2em)] mx-auto p-4 text-[rgb(var(--gray-dark))]">
+					<div class="title mb-4 py-4 text-center leading-none">
+						<h1 class="m-0 mb-2">{title}</h1>
 						<hr />
 					</div>
 					{price && (
-						<div class="price-section">
-							<p class="price">${price}</p>
+						<div class="price-section text-center mb-4">
+							<p class="price text-xl font-bold text-[rgb(var(--gray-dark))]">${price}</p>
 						</div>
 					)}
-					<div class="whatsapp-section" style="margin-bottom: 1em;">
+					<div class="whatsapp-section mb-4">
 						<WhatsAppButton productName={name} sku={id.toString()} />
 					</div>
 					<slot />
 				</div>
 			</article>
-			<section class="related-products" style="margin-top: 2em; padding: 1em;">
-				<h2>Productos Relacionados</h2>
+			<!-- <section class="related-products mt-8 p-4 mx-auto">
+				<h2>Productos Relacionadoss</h2>
 				<p>Próximamente: otros productos de la colección.</p>
-			</section>
+			</section> -->
 		</main>
 		<Footer />
 	</body>
