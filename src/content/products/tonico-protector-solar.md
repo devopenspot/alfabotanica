@@ -1,9 +1,17 @@
 ---
-id: 6
+id: 5
 name: "Protector Solar"
 description: "Una pantalla protectora para proteger tu piel de los rayos UV dañinos. Fórmula ligera y no grasa."
 price: 35
 image: "img/protector-solar.png"
+benefits:
+  - "Protección amplia contra UVA y UVB"
+  - "Fórmula ligera y no grasa, ideal para todo tipo de piel"
+  - "Hidratación adicional con ingredientes naturales"
+  - "Resistente al agua para actividades al aire libre"
+extracts:
+  - "Caléndula"
+  - "Aloe vera"
 ---
 
 ## Descripción

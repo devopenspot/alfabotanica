@@ -12,7 +12,7 @@ export const translations = {
 	// Products Section
     "openingCollection": "Galeria de Productos",
     "collectionSubtitle": "Ofrecemos productos naturales para tu cuidado personal diario.",
-    "productsAvailable": "6 Productos",
+    "productsAvailable": "Productos",
     "quickAdd": "Añadir al carrito",
     "rosemaryTonicTitle": "Tónico Capilar de Romero",
     "rosemaryTonicDesc": "Fortaleza y Vitalidad • 60ml - 120ml",

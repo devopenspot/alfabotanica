@@ -4,6 +4,13 @@ name: "Tónico Facial"
 description: "Un tónico suave infundido con manzanilla ideal para pieles sensibles. Calma la irritación y reduce el enrojecimiento."
 price: 32
 image: "img/tonico-facial.png"
+benefits:
+  - "Calma la irritación y reduce el enrojecimiento"
+  - "Equilibra el pH de la piel"
+  - "Hidratación profunda sin sensación grasa"
+  - "Ideal para pieles sensibles y reactivas"
+extracts:
+  - "Manzanilla"
 ---
 
 ## Descripción

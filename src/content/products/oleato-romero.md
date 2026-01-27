@@ -4,6 +4,13 @@ name: "Oleato"
 description: "Un extracto botánico premium conocido por sus propiedades calmantes. Perfecto para la relajación y el alivio del estrés."
 price: 24
 image: "img/oleato.png"
+benefits:
+  - "Promueve la relajación y reduce el estrés"
+  - "Ayuda en el alivio de tensiones musculares"
+  - "Soporta la salud general del sistema nervioso"
+  - "Fórmula natural y segura para uso diario"
+extracts:
+  - "Romero"
 ---
 
 ## Descripción

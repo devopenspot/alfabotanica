@@ -4,6 +4,15 @@ name: "Crema Analgésica"
 description: "Una crema calmante diseñada para aliviar molestias musculares y articulares. Contiene ingredientes antiinflamatorios naturales."
 price: 28
 image: "img/crema.png"
+benefits:
+  - "Activa la circulación"
+  - "Acción antioxidante"
+  - "Alivia tensiones musculares"
+  - "Aroma herbal"
+  - "Absorción rápida"
+extracts:
+  - "Romero"
+  - "Manzanilla"
 ---
 
 ## Descripción

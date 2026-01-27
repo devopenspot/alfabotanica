@@ -4,6 +4,13 @@ name: "Tónico Capilar"
 description: "Un tónico revitalizante hecho de extracto de romero, perfecto para uso diario. Mejora la salud del cabello y promueve la circulación del cuero cabelludo."
 price: 32
 image: "img/tonico-capilar.png"
+benefits:
+  - "Mejora la circulación del cuero cabelludo"
+  - "Fortalece el cabello y reduce la caída"
+  - "Promueve el crecimiento saludable del cabello"
+  - "Fórmula natural sin químicos agresivos"
+extracts:
+  - "Romero"
 ---
 
 ## Descripción

@@ -4,6 +4,13 @@ name: "Elíxir de Ortiga"
 description: "Un elíxir poderoso elaborado a partir de extracto de ortiga para el bienestar general. Fortalece el sistema inmunológico y desintoxica el cuerpo."
 price: 32
 image: "img/elixir.png"
+benefits:
+  - "Fortalece el sistema inmunológico"
+  - "Ayuda en la desintoxicación del cuerpo"
+  - "Mejora la digestión y la absorción de nutrientes"
+  - "Aumenta la energía y la vitalidad general"
+extracts:
+  - "Ortiga"
 ---
 
 ## Descripción

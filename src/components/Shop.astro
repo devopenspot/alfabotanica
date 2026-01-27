@@ -8,6 +8,7 @@ import chamomileImage from '../assets/img/tonico-facial.png';
 import creamImage from '../assets/img/crema.png';
 import solarScreenImage from '../assets/img/protector-solar.png';
 import ortigaImage from '../assets/img/elixir.png';
+import ProductCard from './ProductCard.astro';
 
 const productImages = {
   'img/oleato.png': oleatoImage,
@@ -29,29 +30,15 @@ const products = await getCollection('products');
             <p class="text-stone-500 italic text-sm sm:text-base leading-relaxed" data-lang-target="collectionSubtitle">{translations.es.collectionSubtitle}</p>
         </div>
         <div class="mt-4 lg:mt-0 uppercase text-xs tracking-tighter border-b border-stone-800 pb-1" data-lang-target="productsAvailable">
-            {translations.es.productsAvailable}
+            {`${products.length} ${translations.es.productsAvailable}`}
         </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
 
-		{products.map((product) => (
-        <article class="group cursor-pointer">
-            <div class="aspect-[4/5] bg-stone-100 overflow-hidden mb-4 sm:mb-6 relative rounded-sm">
-                <Image src={productImages[product.data.image as keyof typeof productImages]}
-    alt={product.data.name}
-    loading="lazy"
-    class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
-                <a href=
-					{`/products${product.filePath?.substring(product.filePath?.lastIndexOf('/'), product.filePath?.lastIndexOf('.md'))}`} 
-					class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 bg-white/90 py-2 sm:py-3 text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity rounded">
-					Comprar
-				</a>
-            </div>
-            <h3 class="text-lg sm:text-xl mb-1 leading-tight">{product.data.name}</h3>
-            <p class="text-stone-500 text-xs sm:text-sm mb-4 leading-relaxed">{product.data.description}</p>
-        </article>
-		)).sort((a, b) => a.id - b.id)}
+  {products.sort((a, b) => a.data.id - b.data.id).map((product) => (
+   <ProductCard product={product} image={productImages[product.data.image as keyof typeof productImages]} key={product.id} />
+  ))}
 
     </div>
 </section>
