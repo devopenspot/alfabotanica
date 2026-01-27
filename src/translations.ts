@@ -22,9 +22,9 @@ export const translations = {
     "painkillerCreamDesc": "Alivio Natural y Bienestar • 100ml",
     "solarScreenTitle": "Protector Solar: Manzanilla & Caléndula",
     "solarScreenDesc": "Protección Mineral Natural • 60ml - 120ml",
-	// Philosophy Section
-    "philosophyTitle": "Belleza y bienestar natural.",
-    "philosophyText": "Acompañamos tus rutinas de cuidado personal, aprovechando el poder de la botánica. Utilizamos extractos naturales de alta calidad, libres de ingredientes sintéticos, parabenos y alcohol.",
+	// Call to Action Section
+	   "callToActionTitle": "Descubre el poder de lo natural.",
+	   "callToActionText": "Únete a nuestra comunidad y transforma tu rutina de cuidado personal con productos botánicos de alta calidad. Explora nuestra colección y encuentra el bienestar que mereces.",
 	// Contact Section
 	"contactTitle": "Conecta con Nosotros.",
 	"contactText": "¿Tienes preguntas o necesitas asesoría personalizada? Estamos aquí para ayudarte a encontrar los productos ideales para tu cuidado personal.",
