@@ -11,6 +11,7 @@ import chamomileImage from '../assets/img/tonico-facial.png';
 import creamImage from '../assets/img/crema.png';
 import solarScreenImage from '../assets/img/protector-solar.png';
 import ortigaImage from '../assets/img/elixir.png';
+import tarro120mlImage from '../assets/img/tarro-120ml.jpg';
 
 const productImages = {
   'img/oleato.png': oleatoImage,
@@ -23,8 +24,7 @@ const productImages = {
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { id, name, description, image, price, ...rest } = Astro.props;
-const title = name;
+const { id, name, title, description, image, price, benefits, extracts, ...rest } = Astro.props;
 const heroImage = productImages[image as keyof typeof productImages];
 ---
 
@@ -35,6 +35,7 @@ const heroImage = productImages[image as keyof typeof productImages];
 			"@context": "https://schema.org",
 			"@type": "Product",
 			"name": name,
+			"title": title,
 			"description": description,
 			"image": heroImage ? new URL(heroImage.src, Astro.site).toString() : "",
 			"offers": {
@@ -48,29 +49,41 @@ const heroImage = productImages[image as keyof typeof productImages];
 	<body>
 		<Header />
 		<main transition:persist="main-content" class="">
+
 			<div class="p-4 text-center">
 				<a href="/#shop" class="text-[rgb(var(--gray))] no-underline hover:underline">&larr; Volver a la tienda</a>
 			</div>
-			<article>
-				<div class="max-w-[800px] mx-auto w-full">
-					{heroImage && <Image width={800} height={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} class="block max-w-full h-auto rounded-xl shadow-[var(--box-shadow)]" />}
+
+			<div class="w-full flex flex-col items-center gap-4">
+
+				<div class="w-full rounded-t-xl p-6 flex flex-col items-center">
+					<h1 class="font-playfair text-[#4B5E45] text-5xl tracking-[0.6em] uppercase ml-3">
+						{name}
+					</h1>
+					<span class="font-playfair text-[#4B5E45] text-xs tracking-[0.4em] uppercase mt-4 ml-1">
+						{title}
+					</span>
 				</div>
-				<div class="prose w-[720px] max-w-[calc(100%-2em)] mx-auto p-4 text-[rgb(var(--gray-dark))]">
-					<div class="title mb-4 py-4 text-center leading-none">
-						<h1 class="m-0 mb-2">{title}</h1>
-						<hr />
+
+			</div>
+
+			<div class="flex justify-center my-6 px-4">
+				{heroImage && <Image width={400} src={tarro120mlImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} 
+				class="block max-w-full h-auto rounded-xl shadow-[var(--box-shadow)]" />}
+			</div>
+
+			<div class="prose w-[720px] max-w-[calc(100%-2em)] mx-auto p-4 text-[rgb(var(--gray-dark))] text-stone-600">
+				<!-- {price && (
+					<div class="price-section text-center mb-4">
+						<p class="price text-xl font-bold text-[rgb(var(--gray-dark))]">${price}</p>
 					</div>
-					{price && (
-						<div class="price-section text-center mb-4">
-							<p class="price text-xl font-bold text-[rgb(var(--gray-dark))]">${price}</p>
-						</div>
-					)}
-					<div class="whatsapp-section mb-4">
-						<WhatsAppButton productName={name} sku={id.toString()} />
-					</div>
-					<slot />
+				)} -->
+				<slot />
+				<div class="whatsapp-section mb-4">
+					<WhatsAppButton productName={name} sku={id.toString()} />
 				</div>
-			</article>
+			</div>
+
 			<!-- <section class="related-products mt-8 p-4 mx-auto">
 				<h2>Productos Relacionadoss</h2>
 				<p>Próximamente: otros productos de la colección.</p>

@@ -34,7 +34,7 @@ const products = await getCollection('products');
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
 		{products.sort((a, b) => a.data.id - b.data.id).map((product) => (
 		<ProductCard product={product} image={productImages[product.data.image as keyof typeof productImages]} key={product.id} />

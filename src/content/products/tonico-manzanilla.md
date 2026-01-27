@@ -8,8 +8,8 @@ image: "img/tonico-facial.png"
 benefits:
   - "Calma la irritación y reduce el enrojecimiento"
   - "Equilibra el pH de la piel"
-  - "Hidratación profunda sin sensación grasa"
-  - "Ideal para pieles sensibles y reactivas"
+  - "Hidratación profunda sin sensación grasosa"
+  - "Ideal para pieles sensibles"
 extracts:
   - "Manzanilla"
 ---
@@ -25,8 +25,8 @@ El Tónico Facial de Manzanilla es un producto suave y calmante diseñado espec�
 ## Beneficios
 - Calma la irritación y reduce el enrojecimiento.
 - Equilibra el pH de la piel.
-- Hidratación profunda sin sensación grasa.
-- Ideal para pieles sensibles y reactivas.
+- Hidratación profunda sin sensación grasosa.
+- Ideal para pieles sensibles.
 
 ## Modo de Uso
 Aplicar en el rostro con un algodón después de la limpieza. Usar mañana y noche. Evitar el contacto con los ojos.

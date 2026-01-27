@@ -8,7 +8,7 @@ image: "img/oleato.png"
 benefits:
   - "Promueve la relajación y reduce el estrés"
   - "Ayuda en el alivio de tensiones musculares"
-  - "Soporta la salud general del sistema nervioso"
+  - "Alivia los dolores de rodilla y cadera"
   - "Fórmula natural y segura para uso diario"
 extracts:
   - "Romero"

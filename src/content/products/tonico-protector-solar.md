@@ -9,7 +9,7 @@ benefits:
   - "Protección amplia contra UVA y UVB"
   - "Fórmula ligera y no grasa, ideal para todo tipo de piel"
   - "Hidratación adicional con ingredientes naturales"
-  - "Resistente al agua para actividades al aire libre"
+  - "Ideal para el uso diario"
 extracts:
   - "Caléndula"
 ---

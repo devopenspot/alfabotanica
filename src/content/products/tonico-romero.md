@@ -9,7 +9,7 @@ benefits:
   - "Mejora la circulación del cuero cabelludo"
   - "Fortalece el cabello y reduce la caída"
   - "Promueve el crecimiento saludable del cabello"
-  - "Fórmula natural sin químicos agresivos"
+  - "Fórmula natural sin químicos"
 extracts:
   - "Romero"
 ---
