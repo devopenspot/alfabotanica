@@ -12,6 +12,7 @@ import creamImage from '../assets/img/crema.png';
 import solarScreenImage from '../assets/img/protector-solar.png';
 import ortigaImage from '../assets/img/elixir.png';
 import tarro120mlImage from '../assets/img/tarro-120ml.jpg';
+import { Image } from 'astro:assets';
 
 const productImages = {
   'img/oleato.png': oleatoImage,
@@ -30,7 +31,7 @@ const heroImage = productImages[image as keyof typeof productImages];
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={tarro120mlImage} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Product",
