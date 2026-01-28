@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.432",
-    "@iconify/tailwind4": "^1.2.1"
+    "@iconify/tailwind": "^1.2.0",
+    "@iconify/tailwind4": "^1.2.1",
+    "tailwindcss": "^3.4.19"
   }
 }
