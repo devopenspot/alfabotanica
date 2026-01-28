@@ -11,7 +11,7 @@ const { product, image } = Astro.props as {
 const slug = product.filePath?.substring(product.filePath.lastIndexOf('/') + 1, product.filePath.lastIndexOf('.md'));
 ---
 
-<article class="border border-stone-300 rounded-xl pb-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+<article class="border border-stone-300 rounded-xl pb-6 shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300">
 
     <div class="max-w-md w-full flex flex-col items-center gap-4">
 
