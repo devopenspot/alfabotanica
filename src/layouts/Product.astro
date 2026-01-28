@@ -21,7 +21,7 @@ const { id, name, title, description, heroImage, price, benefits, extracts, ...r
 
 <html lang="en">
 	<head>
-		<BaseHead title={`${name} ${title} ${extracts}`} description={description} image={heroImage} />
+		<BaseHead title={`${name} ${title} ${extracts}`} description={description} heroImage={heroImage} />
 	</head>
 
 	<body>
@@ -46,7 +46,7 @@ const { id, name, title, description, heroImage, price, benefits, extracts, ...r
 			</div>
 
 			<div class="flex justify-center my-6 px-4">
-				{heroImage && <Image width={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]}}
+				{heroImage && <Image width={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]}
 				class="block max-w-full h-auto rounded-xl shadow-[var(--box-shadow)]" />}
 			</div>
 
