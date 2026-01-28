@@ -11,6 +11,7 @@ export default {
         'med-sage': '#b2ac88',
         'med-terracotta': '#cd853f',
         'med-clay': '#a0522d',
+        'brand-green': '#4B5E45',
       },
     },
   },

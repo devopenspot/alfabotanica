@@ -1,6 +1,9 @@
 ---
 // ShareButton component to copy the current page URL
+import SoonerNotification from './SoonerNotification.astro';
 ---
+
+<SoonerNotification />
 
 <button
   id="share-button"
@@ -13,8 +16,8 @@
 <script is:inline>
   const copyToClipboard = function () {
     navigator.clipboard.writeText(window.location.href).then(() => {
-      // Optional: Show a brief feedback, but keeping it simple
-      alert('Enlace copiado al portapapeles');
+      // Show the sooner notification
+      window.showSoonerNotification('Enlace copiado listo para Compartirlo!');
     }).catch(err => {
       console.error('Error al copiar: ', err);
     });
