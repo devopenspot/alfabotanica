@@ -24,7 +24,7 @@ export const translations = {
     "solarScreenDesc": "Protección Mineral Natural • 60ml - 120ml",
 	// Call to Action Section
 	   "callToActionTitle": "Descubre el poder de lo natural.",
-	   "callToActionText": "Únete a nuestra comunidad y transforma tu rutina de cuidado personal con productos botánicos de alta calidad. Explora nuestra colección y encuentra el bienestar que mereces.",
+	   "callToActionText": "Transforma tu rutina de cuidado personal con productos botánicos de alta calidad. Explora nuestra colección y encuentra el bienestar que mereces.",
 	// Contact Section
 	"contactTitle": "Conecta con Nosotros.",
 	"contactText": "¿Tienes preguntas o necesitas asesoría personalizada? Estamos aquí para ayudarte a encontrar los productos ideales para tu cuidado personal.",

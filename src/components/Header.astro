@@ -8,17 +8,16 @@ import alfabotanicaImage from '../assets/img/alfabotanica.png';
 <header class="sticky top-0 z-50 bg-med-cream backdrop-blur-md border-b border-med-clay">
     <nav class="container mx-auto px-4 sm:px-6 py-4">
         <div class="flex justify-between items-center">
-            <a href="" class="w-64 sm:w-90 lg:w-96">
-				<Image src={alfabotanicaImage}
-					alt="Alfabotánica logo" 
-					class="w-full h-full" />
-			</a>
+            <a href="/" class="w-64 sm:w-90 lg:w-96">
+    <Image src={alfabotanicaImage}
+     alt="Alfabotánica logo"
+     class="w-full h-full" />
+   </a>
 
             {/* Desktop Navigation */}
             <ul class="hidden lg:flex space-x-8 text-sm uppercase tracking-widest">
-                <li><a href="#shop" class="text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
-                <li><a href="#philosophy" class="text-green-700  hover:text-med-terracotta transition" data-lang-target="roots">{translations.es.roots}</a></li>
-                <li><a href="#contact" class="text-green-700  hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
+                <li><a href="/#shop" class="text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
+                <li><a href="/#contact" class="text-green-700  hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
             </ul>
 
     {/* Mobile Menu Button */}
@@ -33,7 +32,6 @@ import alfabotanicaImage from '../assets/img/alfabotanica.png';
         <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-med-clay pt-4">
             <ul class="flex flex-col space-y-4 text-sm uppercase tracking-widest">
                 <li><a href="#shop" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
-                <li><a href="#philosophy" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="roots">{translations.es.roots}</a></li>
                 <li><a href="#contact" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
             </ul>
 
