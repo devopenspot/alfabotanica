@@ -4,7 +4,7 @@ name: "Oleato"
 title: "Herbal"
 description: "Un extracto botánico premium conocido por sus propiedades calmantes. Perfecto para la relajación y el alivio del estrés."
 price: 24
-image: "img/tarro-oleato.jpg"
+heroImage: "../../assets/img/tarro-oleato.jpg"
 benefits:
   - "Promueve la relajación y reduce el estrés"
   - "Ayuda en el alivio de tensiones musculares"

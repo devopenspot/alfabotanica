@@ -11,40 +11,16 @@ import chamomileImage from '../assets/img/tonico-facial.png';
 import creamImage from '../assets/img/crema.png';
 import solarScreenImage from '../assets/img/protector-solar.png';
 import ortigaImage from '../assets/img/elixir.png';
-import tarro120mlImage from '../assets/img/tarro-120ml.jpg';
 
-
-const productImages = {
-  'img/oleato.png': oleatoImage,
-  'img/tonico-capilar.png': rosemaryImage,
-  'img/tonico-facial.png': chamomileImage,
-  'img/crema.png': creamImage,
-  'img/protector-solar.png': solarScreenImage,
-  'img/elixir.png': ortigaImage
-};
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { id, name, title, description, image, price, benefits, extracts, ...rest } = Astro.props;
-const heroImage = productImages[image as keyof typeof productImages];
+const { id, name, title, description, heroImage, price, benefits, extracts, ...rest } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={`${name} ${title} ${extracts[0]}`} description={description} image={tarro120mlImage} />
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Product",
-			"name": name,
-			"title": title,
-			"description": description,
-			"image": heroImage ? new URL(heroImage.src, Astro.site).toString() : "",
-			"offers": {
-				"@type": "Offer",
-				"price": price,
-				"priceCurrency": "USD"
-			}
-		})} />
+		<BaseHead title={`${name} ${title} ${extracts}`} description={description} image={heroImage} />
 	</head>
 
 	<body>
@@ -69,7 +45,7 @@ const heroImage = productImages[image as keyof typeof productImages];
 			</div>
 
 			<div class="flex justify-center my-6 px-4">
-				{heroImage && <Image width={400} src={tarro120mlImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} 
+				{heroImage && <Image width={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]}}
 				class="block max-w-full h-auto rounded-xl shadow-[var(--box-shadow)]" />}
 			</div>
 

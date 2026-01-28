@@ -4,7 +4,7 @@ name: "Tónico"
 title: "Facial"
 description: "Un tónico suave infundido con manzanilla ideal para pieles sensibles. Calma la irritación y reduce el enrojecimiento."
 price: 32
-image: "img/tarro-facial.jpg"
+heroImage: "../../assets/img/tarro-facial.jpg"
 benefits:
   - "Calma la irritación y reduce el enrojecimiento"
   - "Equilibra el pH de la piel"
