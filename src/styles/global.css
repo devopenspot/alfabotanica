@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'tailwindcss';
+@plugin "@iconify/tailwind4";
+
 /*
   Global styles for Alfabotanica website.
   Based on Bear Blog's default CSS with customizations.
