@@ -7,7 +7,7 @@ export const translations = {
 	// homepage
     "heroSubtitle": "Botánica para tu bienestar",
     "heroTitle": "Cuidado personal con esencia natural",
-    "heroDescription": "Productos diseñados para reconectar con lo esencial de forma consciente y respetuosa.",
+    "heroDescription": "Productos diseñados para reconectar con lo esencial.",
     "exploreCollection": "Ver Nuestros Productos",
 	// Products Section
     "openingCollection": "Galeria de Productos",
