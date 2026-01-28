@@ -14,19 +14,19 @@ extracts:
   - "Romero"
 ---
 
-## Descripción
+### Descripción
 Nuestro Tónico Capilar de Romero es un revitalizante natural diseñado para fortalecer el cabello y estimular el cuero cabelludo. Ideal para uso diario, ayuda a mejorar la salud capilar y promover un crecimiento saludable.
 
-## Ingredientes Principales
+### Ingredientes Principales
 - **Extracto de Romero**: Estimula la circulación y fortalece los folículos.
 - **Aceites Esenciales Naturales**: Para una nutrición profunda.
 - **Agua Destilada**: Base pura y segura.
 
-## Beneficios
+### Beneficios
 - Mejora la circulación del cuero cabelludo.
 - Fortalece el cabello y reduce la caída.
 - Promueve el crecimiento saludable del cabello.
-- Fórmula natural sin químicos agresivos.
+- Fórmula natural sin químicos.
 
-## Modo de Uso
+### Modo de Uso
 Aplicar en el cuero cabelludo seco o húmedo, masajear suavemente y dejar actuar. Usar 2-3 veces por semana. Enjuagar si es necesario.

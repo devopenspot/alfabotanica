@@ -34,6 +34,7 @@ export const translations = {
     "contactUs": "Escríbenos",
 	// Footer
     "copyright": "© 2026 Alfabotánica - Productos naturales.",
+	"whatsapp": "Whatsapp",
     "instagram": "Instagram",
     "pinterest": "Pinterest"
   }

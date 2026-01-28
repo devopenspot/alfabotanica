@@ -19,7 +19,7 @@ Nuestro Oleato de Romero es un extracto botánico premium diseñado para promove
 
 ## Ingredientes Principales
 - **Extracto de Romero**: Conocido por sus propiedades antioxidantes y calmantes.
-- **Aceite de Oliva Virgen Extra**: Base natural que facilita la absorción.
+- **Aceite vegetal**: Base natural que facilita la absorción.
 - **Otros Ingredientes Naturales**: Sin aditivos artificiales ni conservantes.
 
 ## Beneficios
