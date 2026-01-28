@@ -50,20 +50,20 @@ const heroImage = productImages[image as keyof typeof productImages];
 		<Header />
 		<main transition:persist="main-content" class="">
 
-			<div class="p-4 text-center">
-				<a href="/#shop" class="text-[rgb(var(--gray))] no-underline hover:underline">&larr; Volver a la tienda</a>
+			<div class="p-4 text-center bg-[#F5F5F0]">
+				<a href="/#shop" class="text-[#4B5E45] no-underline hover:underline font-medium">&larr; Volver a la tienda</a>
 			</div>
 
 			<div class="w-full flex flex-col items-center gap-4">
 
-				<div class="w-full rounded-t-xl p-6 flex flex-col items-center">
-					<h1 class="font-playfair text-[#4B5E45] text-5xl tracking-[0.6em] uppercase ml-3">
-						{name}
-					</h1>
-					<span class="font-playfair text-[#4B5E45] text-xs tracking-[0.4em] uppercase mt-4 ml-1">
-						{title}
-					</span>
-				</div>
+				<div class="w-full p-6 flex flex-col items-center bg-[#4B5E45]">
+						<h1 class="font-playfair text-white text-5xl tracking-[0.6em] uppercase ml-3">
+							{name}
+						</h1>
+						<span class="font-playfair text-white text-xs tracking-[0.4em] uppercase mt-4 ml-1">
+							{title}
+						</span>
+					</div>
 
 			</div>
 
