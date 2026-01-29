@@ -1,11 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import type { ImageMetadata } from 'astro';
 
-const { product, image } = Astro.props as {
+const { product } = Astro.props as {
   product: CollectionEntry<'products'>;
-  image: ImageMetadata;
 };
 
 const slug = product.filePath?.substring(product.filePath.lastIndexOf('/') + 1, product.filePath.lastIndexOf('.md'));
@@ -43,9 +40,9 @@ const slug = product.filePath?.substring(product.filePath.lastIndexOf('/') + 1, 
                 </h1>
             ))}
 
-			<a href={`/products/${slug}`} class="mt-2 text-[#4B5E45] text-sm hover:text-med-terracotta transition">
+			<a href={`/products/${slug}`} class="mt-2 text-[#4B5E45] text-sm hover:text-med-terracotta transition leading-relaxed flex items-center gap-1">
 				{"Ver mas"}
-				<span class="icon-[emojione-v1--bouquet]"></span>
+				<span class="icon-[emojione-v1--bouquet] w-6 h-6"></span>
 			</a>
 			
         </div>

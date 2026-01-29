@@ -1,43 +1,24 @@
 ---
 import { translations } from '../translations';
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import oleatoImage from '../assets/img/oleato.png';
-import rosemaryImage from '../assets/img/tonico-capilar.png';
-import chamomileImage from '../assets/img/tonico-facial.png';
-import creamImage from '../assets/img/crema.png';
-import solarScreenImage from '../assets/img/protector-solar.png';
-import ortigaImage from '../assets/img/elixir.png';
 import ProductCard from './ProductCard.astro';
 
-const productImages = {
-  'img/oleato.png': oleatoImage,
-  'img/tonico-capilar.png': rosemaryImage,
-  'img/tonico-facial.png': chamomileImage,
-  'img/crema.png': creamImage,
-  'img/protector-solar.png': solarScreenImage,
-  'img/elixir.png': ortigaImage
-};
-
 const products = await getCollection('products');
-
 ---
 
 <section id="shop" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
-    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 sm:mb-16">
+	
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 sm:mb-12">
         <div class="max-w-xl">
             <h2 class="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-3" data-lang-target="openingCollection">{translations.es.openingCollection}</h2>
             <p class="text-stone-500 italic text-sm sm:text-base leading-relaxed" data-lang-target="collectionSubtitle">{translations.es.collectionSubtitle}</p>
-        </div>
-        <div class="mt-4 lg:mt-0 uppercase text-xs tracking-tighter border-b border-stone-800 pb-1" data-lang-target="productsAvailable">
-            {`${products.length} ${translations.es.productsAvailable}`}
         </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
 		{products.sort((a, b) => a.data.id - b.data.id).map((product) => (
-		<ProductCard product={product} image={productImages[product.data.image as keyof typeof productImages]} key={product.id} />
+			<ProductCard product={product} key={product.id} />
 		))}
 
     </div>
