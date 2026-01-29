@@ -2,7 +2,7 @@ export const translations = {
  "es": {
 	// menu
     "shop": "Productos",
-    "roots": "Sobre Nosotros",
+    "delivery_policies": "Políticas de Envío",
     "contact": "Contacto",
 	// homepage
     "heroSubtitle": "Botánica para tu bienestar",

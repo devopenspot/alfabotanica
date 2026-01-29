@@ -3,6 +3,12 @@ import { translations } from '../translations';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import { Image } from 'astro:assets';
 import alfabotanicaImage from '../assets/img/alfabotanica.png';
+
+import { WHATSAPP_NUMBER } from '../consts';
+
+const message = encodeURIComponent(`Hola, estoy interesado en los productos.`);
+
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 ---
 
 <header class="sticky top-0 z-50 bg-med-cream backdrop-blur-md border-b border-med-clay">
@@ -16,8 +22,13 @@ import alfabotanicaImage from '../assets/img/alfabotanica.png';
 
             {/* Desktop Navigation */}
             <ul class="hidden lg:flex space-x-8 text-sm uppercase tracking-widest">
+				<li><a href="/delivery-policies" class="text-green-700  hover:text-med-terracotta transition" >{translations.es.delivery_policies}</a></li>
                 <li><a href="/#shop" class="text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
-                <li><a href="/#contact" class="text-green-700  hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
+                <li>
+					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-[#4B5E45] hover:text-med-terracotta transition-colors">
+						<span class="icon-[garden--whatsapp-fill-12] w-6 h-6"></span> 
+					</a>
+				</li>
             </ul>
 
     {/* Mobile Menu Button */}
@@ -32,7 +43,18 @@ import alfabotanicaImage from '../assets/img/alfabotanica.png';
         <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-med-clay pt-4">
             <ul class="flex flex-col space-y-4 text-sm uppercase tracking-widest">
                 <li><a href="#shop" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
-                <li><a href="#contact" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="contact">{translations.es.contact}</a></li>
+				<li><a href="/delivery-policies" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="delivery_policies">{translations.es.delivery_policies}</a></li>
+                <li class="w-full flex justify-center gap-12 items-center pt-12 border-t border-med-clay">
+					<a href="tel:+573003161189"
+						target="_blank" 
+						rel="noopener noreferrer" 
+						class="md:hidden text-[#4B5E45] hover:text-med-terracotta transition-colors">
+						<span class="icon-[topcoat--call] w-6 h-6"></span>
+					</a>
+					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-[#4B5E45] hover:text-med-terracotta transition-colors">
+						<span class="icon-[garden--whatsapp-fill-12] w-6 h-6"></span> 
+					</a>
+				</li>
             </ul>
 
             {/* Language Switcher in Mobile Menu - Hidden on larger screens */}
