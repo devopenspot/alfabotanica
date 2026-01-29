@@ -29,13 +29,13 @@ const slug = product.filePath?.substring(product.filePath.lastIndexOf('/') + 1, 
 			<span class="icon-[emojione-v1--bouquet] w-10 h-6 align-text-top"></span>
         </a>
 
-        <div class="flex flex-col items-center text-center italic">
+        <p class="flex flex-col items-center text-center">
             {product.data.benefits.map((benefit) => (
-                <p class="font-playfair text-stone-600 text-sm">
+                <span class="font-playfair text-[#4B5E45] text-sm leading-relaxed">
                     {benefit}
-                </p>
+                </span>
             ))}
-        </div>
+        </p>
 
         <div class="flex flex-col items-center text-center">
             <p class="font-playfair font-bold text-[#576B51] text-lg mb-2" >
