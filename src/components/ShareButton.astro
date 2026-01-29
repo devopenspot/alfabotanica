@@ -5,12 +5,12 @@ import SoonerNotification from './SoonerNotification.astro';
 
 <SoonerNotification />
 
-<button
-  id="share-button"
-  class="inline-block bg-[#4B5E45] hover:text-med-terracotta text-white font-bold py-2 px-4 rounded transition-colors"
-  onclick="copyToClipboard()"
->
-  Compartir enlace
+<button onclick="copyToClipboard()" class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none">
+	<span class="icon-[ci--share] mr-4"></span>
+	<span class=" flex items-start flex-col leading-none">
+		<span class="text-xs text-[#4B5E45] mb-1">Compartir</span>
+		<span class="title-font font-medium">Enlace</span>
+	</span>
 </button>
 
 <script is:inline>

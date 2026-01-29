@@ -13,6 +13,7 @@ const products = defineCollection({
 		heroImage: image().optional(),
 		benefits: z.array(z.string()),
 		extracts: z.array(z.string()),
+		useMode: z.string().optional(),
 	}),
 });
 

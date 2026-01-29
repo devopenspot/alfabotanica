@@ -6,17 +6,11 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import ShareButton from '../components/ShareButton.astro';
-import oleatoImage from '../assets/img/oleato.png';
-import rosemaryImage from '../assets/img/tonico-capilar.png';
-import chamomileImage from '../assets/img/tonico-facial.png';
-import creamImage from '../assets/img/crema.png';
-import solarScreenImage from '../assets/img/protector-solar.png';
-import ortigaImage from '../assets/img/elixir.png';
-
+import BackButton from '../components/BackButton.astro';
 
 type Props = CollectionEntry<'products'>['data'];
 
-const { id, name, title, description, heroImage, price, benefits, extracts, ...rest } = Astro.props;
+const { id, name, title, description, heroImage, price, benefits, extracts, useMode, ...rest } = Astro.props;
 ---
 
 <html lang="en">
@@ -26,48 +20,63 @@ const { id, name, title, description, heroImage, price, benefits, extracts, ...r
 
 	<body>
 		<Header />
-		<main transition:persist="main-content" class="">
 
-			<div class="p-4 text-center bg-[#F5F5F0]">
-				<button onclick="history.back()" class="text-[#4B5E45] no-underline hover:underline font-medium hover:text-med-terracotta transition">&larr; Volver a la tienda</button>
-			</div>
-
-			<div class="w-full flex flex-col items-center gap-4">
-
-				<div class="w-full p-6 flex flex-col items-center bg-[#4B5E45]">
-						<h1 class="font-playfair text-white text-5xl tracking-[0.6em] uppercase ml-3">
-							{name}
-						</h1>
-						<span class="font-playfair text-white text-xs tracking-[0.4em] uppercase mt-4 ml-1">
-							{title}
-						</span>
+		<main class="text-[#4B5E45] text-sm overflow-hidden">
+			<div class="container px-5 py-24 mx-auto">
+				<div class="lg:w-4/5 mx-auto flex flex-wrap">
+					{heroImage && <Image height={300} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />}
+					<div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+						<h2 class="text-sm title-font tracking-widest">{`Extracto de ${extracts}`}</h2>
+						<h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{`${name} ${title}`}</h1>
+						<p class="flex flex-col gap-2 leading-relaxed">
+							{description}
+						</p>
+						<p class="flex flex-col gap-2 leading-relaxed">
+							{benefits && (
+								<ul class="list-disc ml-5 mt-2">
+									{benefits.map((benefit) => (
+										<li>{benefit}</li>
+									))}
+								</ul>
+							)}
+						</p>
+						<p class="flex flex-col gap-2 leading-relaxed">
+							{useMode}
+						</p>
+						<div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+							<div class="flex items-center">
+								<span class="mr-3">Size</span>
+								<div class="relative">
+								<select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+									<option>60 ml.</option>
+									<option>120 ml.</option>
+									<option>240 ml.</option>
+								</select>
+								<span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+									<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
+									<path d="M6 9l6 6 6-6"></path>
+									</svg>
+								</span>
+								</div>
+							</div>
+							<div class="flex ml-6 ">
+								{price && (<span class="title-font font-medium text-2xl text-gray-900">${price}</span>)}
+								<!-- <span class="mr-3">Color</span>
+								<button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
+								<button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
+								<button class="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button> -->
+							</div>
+						</div>
+						<div class="flex gap-1">
+							<WhatsAppButton productName={name} sku={id.toString()} />
+							<ShareButton />
+							<BackButton />
+						</div>
 					</div>
-
-			</div>
-
-			<div class="flex justify-center my-6 px-4">
-				{heroImage && <Image width={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]}
-				class="block max-w-full h-auto rounded-xl shadow-[var(--box-shadow)]" />}
-			</div>
-
-			<div class="prose w-[720px] max-w-[calc(100%-2em)] mx-auto space--4 p-4 text-sm text-stone-600">
-				<!-- {price && (
-					<div class="price-section text-center mb-4">
-						<p class="price text-xl font-bold text-[rgb(var(--gray-dark))]">${price}</p>
-					</div>
-				)} -->
-				<slot />
-				<div class="whatsapp-section pt-8 mb-4 space-y-4">
-					<WhatsAppButton productName={name} sku={id.toString()} />
-					<ShareButton />
 				</div>
 			</div>
-
-			<!-- <section class="related-products mt-8 p-4 mx-auto">
-				<h2>Productos Relacionadoss</h2>
-				<p>Próximamente: otros productos de la colección.</p>
-			</section> -->
 		</main>
+
 		<Footer />
 	</body>
 </html>

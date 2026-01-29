@@ -12,9 +12,9 @@ benefits:
   - "Fórmula natural sin químicos"
 extracts:
   - "Romero"
+useMode: "Aplicar en el cuero cabelludo seco o húmedo, masajear suavemente y dejar actuar. Usar 2-3 veces por semana. Enjuagar si es necesario."
 ---
 
-### Descripción
 Nuestro Tónico Capilar de Romero es un revitalizante natural diseñado para fortalecer el cabello y estimular el cuero cabelludo. Ideal para uso diario, ayuda a mejorar la salud capilar y promover un crecimiento saludable.
 
 ### Ingredientes Principales

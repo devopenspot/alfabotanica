@@ -12,21 +12,21 @@ benefits:
   - "Ideal para pieles sensibles"
 extracts:
   - "Manzanilla"
+useMode: "Aplicar en el rostro con un algodón después de la limpieza. Usar mañana y noche. Evitar el contacto con los ojos."
 ---
 
-## Descripción
 El Tónico Facial de Manzanilla es un producto suave y calmante diseñado específicamente para pieles sensibles. Infundido con extractos naturales de manzanilla, ayuda a equilibrar el pH de la piel y proporcionar una sensación refrescante.
 
-## Ingredientes Principales
+### Ingredientes Principales
 - **Extracto de Manzanilla**: Calma y reduce la irritación.
 - **Aloe Vera**: Hidratante y suavizante.
 - **Agua de Rosas**: Tonificante y refrescante.
 
-## Beneficios
+### Beneficios
 - Calma la irritación y reduce el enrojecimiento.
 - Equilibra el pH de la piel.
 - Hidratación profunda sin sensación grasosa.
 - Ideal para pieles sensibles.
 
-## Modo de Uso
+### Modo de Uso
 Aplicar en el rostro con un algodón después de la limpieza. Usar mañana y noche. Evitar el contacto con los ojos.
