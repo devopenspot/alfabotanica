@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'Alfa Botánica';
 export const SITE_DESCRIPTION = 'Bievenidos a Alfa Botánica, donde la pureza de la naturaleza se encuentra con el cuidado personal consciente.';
-export const WHATSAPP_NUMBER = '1234567890'; // Replace with actual WhatsApp number
+export const WHATSAPP_NUMBER = '573003161189'; // Replace with actual WhatsApp number

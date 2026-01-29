@@ -34,8 +34,6 @@ const { id, name, title, description, heroImage, price, benefits, extracts, useM
 				<div class="lg:w-4/5 mx-auto flex flex-wrap">
 					{heroImage && <Image height={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />}
 					<div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-						<!-- <h2 class="text-sm title-font tracking-widest">{`Extracto de ${extracts}`}</h2>
-						<h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{`${name} ${title}`}</h1> -->
 						<p class="flex flex-col gap-2 leading-relaxed">
 							{description}
 						</p>
@@ -76,7 +74,7 @@ const { id, name, title, description, heroImage, price, benefits, extracts, useM
 							</div>
 						</div>
 						<div class="flex flex-col md:flex-row gap-1">
-							<WhatsAppButton productName={name} sku={id.toString()} />
+							<WhatsAppButton productName={`${name} ${title} ${extracts}`} sku={id.toString()} />
 							<ShareButton />
 							<BackButton />
 						</div>
@@ -84,7 +82,5 @@ const { id, name, title, description, heroImage, price, benefits, extracts, useM
 				</div>
 			</div>
 		</main>
-
-		<Footer />
 	</body>
 </html>
