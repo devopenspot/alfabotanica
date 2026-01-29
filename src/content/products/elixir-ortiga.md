@@ -3,7 +3,9 @@ id: 6
 name: "Elíxir"
 title: "Suplemento"
 description: "El Elíxir de Ortiga es un suplemento natural diseñado para apoyar el bienestar general. Elaborado con extracto puro de ortiga, ayuda a fortalecer el sistema inmunológico, desintoxicar el cuerpo y promover la vitalidad.."
-price: 32
+price:
+  - "1000 ml. $200.000"
+  - "500 ml. $100.000"
 heroImage: "../../assets/img/elixir-hierbas.jpg"
 benefits:
   - "Fortalece el sistema inmunológico"

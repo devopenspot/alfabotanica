@@ -3,7 +3,9 @@ id: 2
 name: "Tónico"
 title: "Capilar"
 description: "Un tónico revitalizante hecho de extracto de romero, perfecto para uso diario. Mejora la salud del cabello y promueve la circulación del cuero cabelludo."
-price: 32
+price:
+  - "60 ml $30.000"
+  - "120 ml $50.000"
 heroImage: "../../assets/img/tarro-capilar.jpg"
 benefits:
   - "Mejora la circulación del cuero cabelludo"

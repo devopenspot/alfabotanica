@@ -3,7 +3,9 @@ id: 3
 name: "Pomada"
 title: "Natural"
 description: "Una crema calmante diseñada para aliviar molestias musculares y articulares. Contiene ingredientes antiinflamatorios naturales."
-price: 28
+price:
+  - "50 ml $20.000"
+  - "120 ml $40.000"
 heroImage: "../../assets/img/crema-hierbas.jpg"
 benefits:
   - "Activa la circulación"

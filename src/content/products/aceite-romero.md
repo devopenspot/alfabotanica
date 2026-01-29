@@ -3,7 +3,10 @@ id: 1
 name: "Aceite"
 title: "Natural"
 description: "Un extracto botánico premium conocido por sus propiedades calmantes. Perfecto para la relajación y el alivio del estrés."
-price: 24
+price:
+  - "60 ml $20.000"
+  - "240 ml $50.000"
+
 heroImage: "../../assets/img/tarro-oleato.jpg"
 benefits:
   - "Promueve la relajación y reduce el estrés"

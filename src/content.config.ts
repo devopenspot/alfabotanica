@@ -9,7 +9,7 @@ const products = defineCollection({
 		name: z.string(),
 		title: z.string(),
 		description: z.string(),
-		price: z.number(),
+		price: z.array(z.string()),
 		heroImage: image().optional(),
 		benefits: z.array(z.string()),
 		extracts: z.array(z.string()),

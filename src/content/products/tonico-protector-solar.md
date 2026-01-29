@@ -3,7 +3,9 @@ id: 5
 name: "Tónico"
 title: "Protector Solar"
 description: "Una pantalla protectora para proteger tu piel de los rayos UV dañinos. Fórmula ligera y no grasa."
-price: 35
+price:
+  - "60 ml $30.000"
+  - "120 ml $50.000"
 heroImage: "../../assets/img/protector-solar-hierbas.jpg"
 benefits:
   - "Protección amplia contra UVA y UVB"
