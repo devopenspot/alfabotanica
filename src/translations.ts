@@ -33,10 +33,9 @@ export const translations = {
     "shippingPolicy": "Envíos y Entregas",
     "contactUs": "Escríbenos",
 	// Footer
-    "copyright": "© 2026 Alfabotánica - Productos naturales.",
+    "copyright": "© 2026 Alfabotánica",
 	"whatsapp": "Whatsapp",
-    "instagram": "Instagram",
-    "pinterest": "Pinterest"
+    "call": "Llamar",
   }
 };
 

@@ -1,5 +1,10 @@
 ---
 import { translations } from '../translations';
+import { WHATSAPP_NUMBER } from '../consts';
+
+const message = encodeURIComponent(`Hola, estoy interesado en los productos.`);
+
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 ---
 
 <footer id="contact" class="bg-med-cream border-t border-med-clay py-4 sm:py-6 lg:py-8">
@@ -7,8 +12,16 @@ import { translations } from '../translations';
         
         <div class="flex flex-col mx-8 sm:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-stone-400 border-med-clay">
             <p class="mb-4 sm:mb-0" data-lang-target="copyright">{translations.es.copyright}</p>
-            <div class="flex space-x-4 sm:space-x-6">
-                <a href="#" class="text-green-700 hover:text-med-terracotta transition-colors" data-lang-target="instagram">{translations.es.whatsapp}</a>
+            <div class="flex gap-8">
+                <a href="tel:+573003161189"
+					target="_blank" 
+					rel="noopener noreferrer" 
+					class="md:hidden text-[#4B5E45] hover:text-med-terracotta transition-colors">
+					<span class="icon-[topcoat--call] w-8 h-8"></span>
+				</a>
+				<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-[#4B5E45] hover:text-med-terracotta transition-colors">
+					<span class="icon-[garden--whatsapp-fill-12] w-8 h-8"></span>
+				</a>
             </div>
         </div>
     </div>
