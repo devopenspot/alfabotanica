@@ -7,7 +7,7 @@ type Props = {
 };
 
 const { productName, sku }: Props = Astro.props;
-const message = encodeURIComponent(`Hola, estoy interesado en ${productName} (Ref: ${sku}). Me gustaría recibir más información al respecto.`);
+const message = encodeURIComponent(`Hola, estoy interesado en ${productName}. Me gustaría recibir más información al respecto.`);
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 ---
 
@@ -15,7 +15,7 @@ const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
   href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
-  class="fixed bottom-64 md:bottom-40 right-10 md:right-32 z-50 flex bg-green-50 border py-3 px-5 rounded-full items-center hover:bg-gray-200 hover:text-[#4B5E45] focus:outline-none text-[#4B5E45]">
+  class="flex bg-gray-100 py-3 px-5 rounded-md items-center hover:bg-gray-200 hover:text-[#4B5E45] focus:outline-none text-[#4B5E45]">
 	<span class="icon-[garden--whatsapp-fill-12] mr-4"></span>
 	<span class=" flex items-start flex-row md:flex-col leading-none">
 		<span class="title-font font-medium md:text-xs md:mb-1 text-[#4B5E45]">Consultar Por</span>
