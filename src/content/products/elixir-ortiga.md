@@ -6,7 +6,7 @@ description: "El Elíxir de Ortiga es un suplemento natural diseñado para apoya
 price:
   - "1000 ml. $200.000"
   - "500 ml. $100.000"
-heroImage: "../../assets/img/elixir-hierbas.jpg"
+heroImage: "../../assets/img/ortiga-1000-ml-sin-fondo.png"
 benefits:
   - "Fortalece el sistema inmunológico"
   - "Ayuda en la desintoxicación del cuerpo"

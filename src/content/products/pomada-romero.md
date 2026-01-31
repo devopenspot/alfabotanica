@@ -6,7 +6,7 @@ description: "Una crema calmante diseñada para aliviar molestias musculares y a
 price:
   - "50 ml $20.000"
   - "120 ml $40.000"
-heroImage: "../../assets/img/crema-hierbas.jpg"
+heroImage: "../../assets/img/crema.jpg"
 benefits:
   - "Activa la circulación"
   - "Alivia tensiones musculares"
