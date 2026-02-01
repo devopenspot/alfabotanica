@@ -32,7 +32,22 @@ const { id, name, title, description, heroImage, price, benefits, extracts, useM
 			</div>
 			<div class="container px-5 py-12 mx-auto">
 				<div class="lg:w-4/5 mx-auto flex flex-wrap">
-					{heroImage && <Image height={400} src={heroImage} alt={title} loading="lazy" format="webp" sizes="100vw" densities={[0.5, 1, 2]} class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" />}
+					{heroImage && (
+						<div class="lg:w-1/2 w-full aspect-square relative rounded-xl overflow-hidden shadow-2xl group">
+							<Image
+								src={heroImage}
+								alt={title}
+								width={800}
+								height={800}
+								loading="eager"
+								format="webp" 
+								quality="high"
+								widths={[400, 800, 1200]}
+								sizes="(max-width: 1024px) 100vw, 50vw"
+								class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+							/>
+						</div>
+					)}
 					<div class="lg:w-1/2 w-full lg:pl-10 lg:py-0 mt-6 lg:mt-0">
 						<p class="flex flex-col gap-2 leading-relaxed">
 							{description}
