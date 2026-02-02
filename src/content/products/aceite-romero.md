@@ -15,7 +15,7 @@ benefits:
   - "Fórmula natural y segura para uso diario"
 extracts:
   - "Romero"
-useMode: "Aplicar unas gotas en la piel o consumir según las indicaciones. Consultar con un profesional de la salud antes de usar. Mantener en un lugar fresco y seco."
+useMode: "Aplicar en la piel, cerca a las zonas de dolor."
 ---
 
 Nuestro Oleato de Romero es un extracto botánico premium diseñado para promover la relajación y el alivio del estrés. Elaborado con ingredientes naturales de alta calidad, este producto ofrece una experiencia calmante que ayuda a equilibrar el cuerpo y la mente.
@@ -32,4 +32,4 @@ Nuestro Oleato de Romero es un extracto botánico premium diseñado para promove
 - Fórmula natural y segura para uso diario.
 
 ### Modo de Uso
-Aplicar unas gotas en la piel o consumir según las indicaciones. Consultar con un profesional de la salud antes de usar. Mantener en un lugar fresco y seco.
+Aplicar en la piel, cerca a las zonas de dolor.

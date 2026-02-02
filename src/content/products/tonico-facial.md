@@ -14,7 +14,7 @@ benefits:
   - "Ideal para pieles sensibles"
 extracts:
   - "Manzanilla"
-useMode: "Aplicar en el rostro con un algodón después de la limpieza. Usar mañana y noche. Evitar el contacto con los ojos."
+useMode: "Aplicar en el rostro limpio, no necesita enjuague, ni masajes, solo dejar secar. Usar mañana y noche."
 ---
 
 El Tónico Facial de Manzanilla es un producto suave y calmante diseñado específicamente para pieles sensibles. Infundido con extractos naturales de manzanilla, ayuda a equilibrar el pH de la piel y proporcionar una sensación refrescante.
@@ -31,4 +31,4 @@ El Tónico Facial de Manzanilla es un producto suave y calmante diseñado espec�
 - Ideal para pieles sensibles.
 
 ### Modo de Uso
-Aplicar en el rostro con un algodón después de la limpieza. Usar mañana y noche. Evitar el contacto con los ojos.
+Aplicar en el rostro limpio, no necesita enjuague, ni masajes, solo dejar secar. Usar mañana y noche.

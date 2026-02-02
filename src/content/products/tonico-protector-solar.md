@@ -14,7 +14,7 @@ benefits:
   - "Ideal para el uso diario"
 extracts:
   - "Caléndula"
-useMode: "Aplicar generosamente en la piel expuesta 15 minutos antes de la exposición al sol. Reaplicar cada 2 horas o después de nadar. Usar diariamente."
+useMode: "Aplicar en la piel expuesta 15 minutos antes de la exposición al sol. Reaplicar cada 2 horas o después de nadar. Usar diariamente."
 ---
 
 Nuestro Protector Solar es una fórmula avanzada que protege la piel contra los rayos UV dañinos del sol. Con SPF alto, es ideal para uso diario, ofreciendo una protección efectiva sin sensación pesada.
@@ -31,4 +31,4 @@ Nuestro Protector Solar es una fórmula avanzada que protege la piel contra los 
 - Resistente al agua para actividades al aire libre.
 
 ### Modo de Uso
-Aplicar generosamente en la piel expuesta 15 minutos antes de la exposición al sol. Reaplicar cada 2 horas o después de nadar. Usar diariamente.
+Aplicar en la piel expuesta 15 minutos antes de la exposición al sol. Reaplicar cada 2 horas o después de nadar. Usar diariamente.
