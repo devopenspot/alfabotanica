@@ -1,5 +1,5 @@
 ---
-import { WHATSAPP_NUMBER } from '../consts';
+import { SITE_WHATSAPP } from '../consts';
 
 type Props = {
   productName: string;
@@ -8,7 +8,7 @@ type Props = {
 
 const { productName, sku }: Props = Astro.props;
 const message = encodeURIComponent(`Hola, estoy interesado en ${productName}. Me gustaría recibir más información al respecto.`);
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
 ---
 
 <a

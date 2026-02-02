@@ -15,12 +15,23 @@ const { id, name, title, description, heroImage, price, benefits, extracts, useM
 
 // Create a refined description for social sharing that includes key benefits or price if relevant
 const seoDescription = description?.slice(0, 160) + (description?.length > 160 ? '...' : '');
-const seoTitle = `${name} - ${title} | Alfa Botánica`;
+const seoTitle = `${name} - ${title}`;
+
+// Extract numeric price for metadata if available (e.g., from "60 ml $20.000")
+const displayPrice = price?.[0]?.split('$')?.[1]?.replace(/\./g, '') || "";
 ---
 
 <html lang="es">
 	<head>
-		<BaseHead title={seoTitle} description={seoDescription} heroImage={heroImage} />
+		<BaseHead 
+			title={seoTitle} 
+			description={seoDescription} 
+			heroImage={heroImage} 
+			type="product"
+			price={displayPrice}
+			category="Botanical"
+			keywords={[name, ...extracts]}
+		/>
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 		</style>

@@ -2,14 +2,14 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_DESCRIPTION, SITE_TITLE, WHATSAPP_NUMBER } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_WHATSAPP } from '../consts';
 import alfabotanicaImage from '../assets/img/alfabotanica.png';
 import { ClientRouter } from 'astro:transitions';
 
 const pageTitle = "Guía de Compra | " + SITE_TITLE;
 const pageDescription = "Sigue estos sencillos pasos para realizar tu compra en Alfabotanica y recibir tus productos de forma rápida y segura.";
 
-const whatsappBaseUrl = `https://wa.me/${WHATSAPP_NUMBER}`;
+const whatsappBaseUrl = `https://wa.me/${SITE_WHATSAPP}`;
 const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibilidad de un producto.");
 ---
 

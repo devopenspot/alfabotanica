@@ -4,11 +4,11 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 import { Image } from 'astro:assets';
 import alfabotanicaImage from '../assets/img/alfabotanica.png';
 
-import { WHATSAPP_NUMBER } from '../consts';
+import { SITE_WHATSAPP } from '../consts';
 
 const message = encodeURIComponent(`Hola, estoy interesado en los productos.`);
 
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
 ---
 
 <header class="sticky top-0 z-50 bg-med-cream backdrop-blur-md border-b border-med-clay">
@@ -89,20 +89,21 @@ const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            if (mobileMenuToggle && mobileMenu) {
+            if (mobileMenuToggle && mobileMenu && mobileMenuToggle.parentNode) {
                 // Remove previous listeners if any (though astro:page-load handles it mostly)
-                const newToggle = mobileMenuToggle.cloneNode(true);
+                const newToggle = mobileMenuToggle.cloneNode(true) as HTMLElement;
                 mobileMenuToggle.parentNode.replaceChild(newToggle, mobileMenuToggle);
                 
                 newToggle.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                     const isExpanded = !mobileMenu.classList.contains('hidden');
-                    newToggle.setAttribute('aria-expanded', isExpanded);
+                    newToggle.setAttribute('aria-expanded', isExpanded.toString());
                 });
 
                 // Close mobile menu when clicking outside
                 document.addEventListener('click', (e) => {
-                    if (!newToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    const target = e.target as Node;
+                    if (!newToggle.contains(target) && !mobileMenu.contains(target)) {
                         mobileMenu.classList.add('hidden');
                         newToggle.setAttribute('aria-expanded', 'false');
                     }
