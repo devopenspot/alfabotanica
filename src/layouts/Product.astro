@@ -12,11 +12,15 @@ import BackButton from '../components/BackButton.astro';
 type Props = CollectionEntry<'products'>['data'];
 
 const { id, name, title, description, heroImage, price, benefits, extracts, useMode, ...rest } = Astro.props;
+
+// Create a refined description for social sharing that includes key benefits or price if relevant
+const seoDescription = description?.slice(0, 160) + (description?.length > 160 ? '...' : '');
+const seoTitle = `${name} - ${title} | Alfa Botánica`;
 ---
 
 <html lang="es">
 	<head>
-		<BaseHead title={`${name} ${title} ${extracts}`} description={description} heroImage={heroImage} />
+		<BaseHead title={seoTitle} description={seoDescription} heroImage={heroImage} />
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 		</style>
