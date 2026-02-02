@@ -20,46 +20,49 @@ const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibi
 		<ClientRouter />
 		<style>
 			.step-number {
-				@apply flex-shrink-0 w-12 h-12 rounded-full bg-[#4B5E45] inline-flex items-center justify-center text-white relative z-10 font-bold text-xl shadow-lg shadow-green-900/10;
+				@apply flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#4B5E45] inline-flex items-center justify-center text-white relative z-10 font-bold text-lg md:text-xl shadow-lg shadow-green-900/10;
 			}
 			.step-line {
-				@apply h-full w-0.5 absolute inset-0 left-6 flex items-center justify-center bg-stone-200 pointer-events-none;
+				@apply h-full w-0.5 absolute inset-0 left-5 md:left-6 flex items-center justify-center bg-stone-200 pointer-events-none;
 			}
 			.step-container {
-				@apply flex relative pb-16 last:pb-0;
+				@apply flex relative pb-12 md:pb-16 last:pb-0;
 			}
 			.step-content {
-				@apply flex-grow pl-8;
+				@apply flex-grow pl-6 md:pl-10;
+			}
+			.timeline-content {
+				@apply bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-stone-200/40 p-6 sm:p-10 md:p-16 border border-stone-100;
 			}
 		</style>
 	</head>
 	<body class="min-h-screen bg-[#FDFCF9] text-stone-900 font-serif">
 		<Header />
 		
-		<main class="flex-1 py-16 md:py-24" transition:animate="fade">
-			<div class="max-w-4xl mx-auto px-6">
-				<header class="text-center mb-20">
-					<span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest uppercase bg-[#4B5E45]/10 text-[#4B5E45] rounded-full">Proceso de Compra</span>
-					<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-8 font-serif italic">Guía de Compra: Paso a Paso</h1>
-					<p class="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
+		<main class="flex-1 py-10 sm:py-16 md:py-24" transition:animate="fade">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6">
+				<header class="text-center mb-12 sm:mb-20">
+					<span class="inline-block px-4 py-1.5 mb-4 sm:mb-6 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase bg-[#4B5E45]/10 text-[#4B5E45] rounded-full">Proceso de Compra</span>
+					<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-4 sm:mb-8 font-serif italic leading-tight">Guía de Compra: Paso a Paso</h1>
+					<p class="text-base sm:text-lg md:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed px-2">
 						¡Gracias por elegirnos! Para que recibas tus productos de forma rápida y segura, hemos diseñado este sencillo proceso.
 					</p>
 				</header>
 
-				<div class="bg-white rounded-[2.5rem] shadow-2xl shadow-stone-200/40 p-10 md:p-16 border border-stone-100">
+				<div class="timeline-content">
 					<!-- Step 1 -->
 					<div class="step-container">
 						<div class="step-line"></div>
 						<div class="step-number">1</div>
 						<div class="step-content">
-							<h3 class="text-2xl font-bold text-stone-800 mb-4 font-serif">Consulta de Disponibilidad</h3>
-							<p class="text-stone-600 leading-relaxed mb-6 text-lg">
-								Antes de realizar cualquier pago, contáctanos vía <span class="font-bold text-[#4B5E45]">WhatsApp</span> o llamada telefónica. Confirmaremos en tiempo real si el producto que deseas está en inventario y listo para despacho.
+							<h3 class="text-xl sm:text-2xl font-bold text-stone-800 mb-3 sm:mb-4 font-serif">Consulta de Disponibilidad</h3>
+							<p class="text-stone-600 leading-relaxed mb-6 text-base sm:text-lg">
+								Antes de realizar cualquier pago, contáctanos vía <span class="font-bold text-[#4B5E45]">WhatsApp</span> o llamada telefónica. Confirmaremos en tiempo real si el producto está disponible.
 							</p>
-							<div class="flex gap-4">
-								<a href={`${whatsappBaseUrl}?text=${contactMessage}`} class="inline-flex items-center px-6 py-3 bg-[#4B5E45] text-white rounded-full text-base font-bold hover:bg-[#3D4D38] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-green-900/20">
+							<div class="flex">
+								<a href={`${whatsappBaseUrl}?text=${contactMessage}`} class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-[#4B5E45] text-white rounded-full text-sm sm:text-base font-bold hover:bg-[#3D4D38] transition-all transform hover:-translate-y-0.5 shadow-lg shadow-green-900/20 active:scale-95">
 									<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.012 1.388 4.706 1.389 5.233 0 9.493-4.258 9.495-9.492.001-2.534-1.011-4.931-2.833-6.753s-4.219-2.835-6.753-2.835c-5.233 0-9.494 4.259-9.496 9.492-.001 1.761.479 3.473 1.391 4.981l-.919 3.36 3.409-.892zm10.957-5.422c-.3-.149-1.77-.874-2.044-.974s-.474-.149-.674.15-.774.974-.949 1.174-.35.224-.65.074c-3-.15-4.298-1.103-5.321-2.222-1.125-1.233-1.631-2.316-1.782-2.615s-.015-.461.135-.61c.134-.135.3-.35.45-.524s.199-.299.3-.499.05-.374-.025-.524-.674-1.623-.924-2.221c-.244-.582-.491-.503-.674-.512-.174-.008-.374-.01-.574-.01s-.524.074-.799.374c-.275.3-.1.1.1.1.1.1.1.1.1.1s.1.1.1.349c1.074 1.149 2.774 4.12 2.774 4.12s1.424 2.373 3.774 3.348c.624.261 1.1.417 1.474.536.626.2 1.196.172 1.646.105.5-.075 1.77-.723 2.02-1.422s.25-1.297.175-1.422-.275-.224-.575-.373z"/></svg>
-									Consultar Disponibilidad
+									Consultar por WhatsApp
 								</a>
 							</div>
 						</div>
@@ -70,9 +73,9 @@ const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibi
 						<div class="step-line"></div>
 						<div class="step-number">2</div>
 						<div class="step-content">
-							<h3 class="text-2xl font-bold text-stone-800 mb-4 font-serif">Datos para el Pago</h3>
-							<p class="text-stone-600 leading-relaxed text-lg">
-								Una vez confirmada la disponibilidad, te proporcionaremos el número de celular vinculado a nuestra cuenta <span class="font-bold text-[#E91E63]">Nequi</span> para que puedas proceder con la transacción de forma segura.
+							<h3 class="text-xl sm:text-2xl font-bold text-stone-800 mb-3 sm:mb-4 font-serif">Datos para el Pago</h3>
+							<p class="text-stone-600 leading-relaxed text-base sm:text-lg">
+								Una vez confirmada la disponibilidad, te proporcionaremos los datos de nuestra cuenta <span class="font-bold text-[#E91E63]">Nequi</span> para proceder con la transacción de forma segura.
 							</p>
 						</div>
 					</div>
@@ -82,22 +85,25 @@ const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibi
 						<div class="step-line"></div>
 						<div class="step-number">3</div>
 						<div class="step-content">
-							<h3 class="text-2xl font-bold text-stone-800 mb-4 font-serif">Reporte de Pago <span class="text-red-600 text-sm font-bold ml-3 bg-red-50 px-3 py-1 rounded-md uppercase tracking-wide">Muy importante</span></h3>
-							<p class="text-stone-600 leading-relaxed mb-6 text-lg">
-								Realiza la transferencia por el valor acordado. Para procesar tu pedido, es <span class="font-bold border-b-2 border-red-200">obligatorio</span> cumplir con lo siguiente:
+							<div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-3 sm:mb-4">
+								<h3 class="text-xl sm:text-2xl font-bold text-stone-800 font-serif">Reporte de Pago</h3>
+								<span class="w-fit text-red-600 text-[10px] sm:text-xs font-bold bg-red-50 px-2 sm:px-3 py-1 rounded-md uppercase tracking-wider">Muy importante</span>
+							</div>
+							<p class="text-stone-600 leading-relaxed mb-6 text-base sm:text-lg">
+								Para procesar tu pedido, es <span class="font-bold border-b-2 border-red-200">obligatorio</span> cumplir con lo siguiente:
 							</p>
-							<div class="grid gap-4 mb-6">
-								<div class="flex items-center p-4 bg-stone-50 rounded-2xl border border-stone-100">
-									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-										<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+							<div class="grid gap-3 sm:gap-4 mb-2">
+								<div class="flex items-start sm:items-center p-4 bg-stone-50 rounded-2xl border border-stone-100 transition-colors hover:bg-stone-100/50">
+									<div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+										<svg class="w-5 h-5 sm:w-6 sm:h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
 									</div>
-									<span class="text-stone-700 font-medium">Enviar el comprobante exitoso de la transferencia.</span>
+									<span class="text-stone-700 font-medium text-sm sm:text-base">Enviar el comprobante de transferencia.</span>
 								</div>
-								<div class="flex items-center p-4 bg-stone-50 rounded-2xl border border-stone-100">
-									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-										<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+								<div class="flex items-start sm:items-center p-4 bg-stone-50 rounded-2xl border border-stone-100 transition-colors hover:bg-stone-100/50">
+									<div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-100 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+										<svg class="w-5 h-5 sm:w-6 sm:h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
 									</div>
-									<span class="text-stone-700 font-medium">El envío del comprobante debe ser únicamente vía WhatsApp.</span>
+									<span class="text-stone-700 font-medium text-sm sm:text-base">El envío debe ser exclusivamente vía WhatsApp.</span>
 								</div>
 							</div>
 						</div>
@@ -108,47 +114,47 @@ const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibi
 						<div class="step-line"></div>
 						<div class="step-number">4</div>
 						<div class="step-content">
-							<h3 class="text-2xl font-bold text-stone-800 mb-4 font-serif">Verificación</h3>
-							<p class="text-stone-600 leading-relaxed text-lg italic">
-								Una vez recibido tu comprobante, nuestro equipo validará el ingreso del dinero en la plataforma de Nequi. Este proceso es rápido, pero esencial para autorizar el despacho.
+							<h3 class="text-xl sm:text-2xl font-bold text-stone-800 mb-3 sm:mb-4 font-serif">Verificación</h3>
+							<p class="text-stone-600 leading-relaxed text-base sm:text-lg italic">
+								Validaremos el ingreso del dinero en Nequi. Este proceso es rápido y esencial para autorizar el despacho de tus productos.
 							</p>
 						</div>
 					</div>
 
 					<!-- Step 5 -->
-					<div class="last-step flex relative">
+					<div class="flex relative">
 						<div class="step-number">5</div>
 						<div class="step-content">
-							<h3 class="text-2xl font-bold text-stone-800 mb-4 font-serif">Envío y Seguimiento</h3>
-							<p class="text-stone-600 leading-relaxed mb-6 text-lg">
+							<h3 class="text-xl sm:text-2xl font-bold text-stone-800 mb-3 sm:mb-4 font-serif">Envío y Seguimiento</h3>
+							<p class="text-stone-600 leading-relaxed mb-6 text-base sm:text-lg">
 								¡Tu pedido se pone en marcha! 
 							</p>
-							<div class="bg-[#F3F4F1] p-8 rounded-[2rem] mb-6 border border-stone-200/50">
+							<div class="bg-[#F3F4F1] p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] mb-6 border border-stone-200/50">
 								<div class="flex items-center mb-4">
-									<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mr-4">
-										<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#4B5E45]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center shadow-sm mr-3 sm:mr-4">
+										<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6 text-[#4B5E45]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 											<path stroke-linecap="round" stroke-linejoin="round" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
 											<path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
 										</svg>
 									</div>
-									<p class="text-[#4B5E45] font-bold text-xl font-serif italic">Logística Aliada</p>
+									<p class="text-[#4B5E45] font-bold text-lg sm:text-xl font-serif italic">Logística Aliada</p>
 								</div>
-								<p class="text-stone-700 leading-relaxed">
-									Realizamos todos nuestros envíos a través de <span class="font-bold text-stone-900">Interrapidísimo</span>, garantizando cobertura y seguridad.
+								<p class="text-stone-700 leading-relaxed text-sm sm:text-base">
+									Realizamos todos nuestros envíos a través de <span class="font-bold text-stone-900">Interrapidísimo</span>, garantizando total cobertura.
 								</p>
 							</div>
-							<p class="text-stone-600 leading-relaxed text-lg">
-								Una vez entregado el paquete a la transportadora, te enviaremos el <span class="font-bold text-stone-800 underline decoration-[#4B5E45]/30">número de guía</span> para que puedas rastrear tu pedido en tiempo real hasta que llegue a tus manos.
+							<p class="text-stone-600 leading-relaxed text-base sm:text-lg">
+								Te enviaremos el <span class="font-bold text-stone-800 underline decoration-[#4B5E45]/30">número de guía</span> para que rastrees tu pedido en tiempo real hasta su entrega.
 							</p>
 						</div>
 					</div>
 				</div>
 				
-				<div class="mt-24 text-center">
-					<div class="inline-block p-12 bg-white rounded-[3rem] shadow-xl shadow-stone-200/30 border border-stone-100 max-w-lg mx-auto">
-						<h4 class="text-2xl font-bold text-stone-800 mb-4 font-serif italic">¿Listo para empezar?</h4>
-						<p class="text-stone-500 mb-10 leading-relaxed font-sans">Contáctanos ahora y te guiaremos en cada paso de tu compra.</p>
-						<a href={`${whatsappBaseUrl}?text=${contactMessage}`} class="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-[#4B5E45] font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-[#3D4D38] shadow-2xl shadow-green-900/30">
+				<div class="mt-16 sm:mt-24 text-center">
+					<div class="inline-block w-full sm:w-auto p-8 sm:p-12 bg-white rounded-[2rem] sm:rounded-[3rem] shadow-xl shadow-stone-200/30 border border-stone-100 sm:max-w-lg mx-auto">
+						<h4 class="text-xl sm:text-2xl font-bold text-stone-800 mb-3 sm:mb-4 font-serif italic">¿Listo para empezar?</h4>
+						<p class="text-stone-500 mb-8 sm:mb-10 leading-relaxed font-sans text-sm sm:text-base">Contáctanos ahora y te guiaremos en cada paso de tu compra.</p>
+						<a href={`${whatsappBaseUrl}?text=${contactMessage}`} class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 sm:py-5 font-bold text-white transition-all duration-200 bg-[#4B5E45] rounded-full hover:bg-[#3D4D38] shadow-2xl shadow-green-900/30 active:scale-95">
 							Hablar con un Asesor
 						</a>
 					</div>
