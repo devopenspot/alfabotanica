@@ -45,7 +45,7 @@ const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
                 <li><a href="#shop" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
 				<li><a href="/delivery-policies" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="delivery_policies">{translations.es.delivery_policies}</a></li>
                 <li class="w-full flex justify-center gap-12 items-center pt-12 border-t border-med-clay">
-					<a href="tel:+573003161189"
+					<a href={`tel:+${SITE_WHATSAPP}`}
 						target="_blank" 
 						rel="noopener noreferrer" 
 						class="md:hidden text-[#4B5E45] hover:text-med-terracotta transition-colors">
