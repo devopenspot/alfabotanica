@@ -1,5 +1,6 @@
 export const translations = {
  "es": {
+	"alfabotanica": "Alfabotánica",
 	// menu
     "shop": "Productos",
     "delivery_policies": "Políticas de Envío",

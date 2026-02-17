@@ -15,10 +15,12 @@ const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
   href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
-  class="flex bg-gray-100 py-3 px-5 rounded-md items-center hover:bg-gray-200 hover:text-[#4B5E45] focus:outline-none text-[#4B5E45]">
-	<span class="icon-[garden--whatsapp-fill-12] mr-4"></span>
-	<span class=" flex items-start flex-row md:flex-col leading-none">
-		<span class="title-font font-medium md:text-xs md:mb-1 text-[#4B5E45]">Consultar Por</span>
-		<span class="title-font font-medium ml-1 md:ml-0">Whatsapp</span>
+  class="flex bg-white border border-border-light py-3 px-5 rounded-lg items-center hover:bg-brand-green hover:text-white hover:border-brand-green focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 transition-all duration-250 ease-smooth"
+  aria-label="Consultar producto por WhatsApp"
+>
+	<span class="icon-[garden--whatsapp-fill-12] mr-4 w-5 h-5 text-brand-green group-hover:text-white"></span>
+	<span class="flex items-start flex-row md:flex-col leading-none">
+		<span class="title-font font-medium md:text-xs md:mb-1 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Consultar Por</span>
+		<span class="title-font font-medium ml-1 md:ml-0 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Whatsapp</span>
 	</span>
 </a>

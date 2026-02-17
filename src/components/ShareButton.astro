@@ -1,25 +1,27 @@
 ---
-// ShareButton component to copy the current page URL
 import SoonerNotification from './SoonerNotification.astro';
 ---
 
 <SoonerNotification />
 
-<button onclick="copyToClipboard()" class="bg-gray-100 inline-flex py-3 px-5 rounded-lg items-center hover:bg-gray-200 focus:outline-none">
-	<span class="icon-[ci--share] mr-4"></span>
-	<span class=" flex items-start flex-row md:flex-col leading-none">
-		<span class="title-font font-medium md:text-xs md:mb-1 text-[#4B5E45]">Compartir</span>
-		<span class="title-font font-medium ml-1 md:ml-0">Enlace</span>
-	</span>
+<button 
+    onclick="copyToClipboard()" 
+    class="w-full bg-white border border-border-light inline-flex py-3 px-5 rounded-lg items-center hover:bg-brand-green hover:text-white hover:border-brand-green focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 transition-all duration-250 ease-smooth"
+    aria-label="Copiar enlace del producto"
+>
+ 	<span class="icon-[ci--share] mr-4 w-5 h-5 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth"></span>
+ 	<span class="flex items-start flex-row md:flex-col leading-none">
+ 		<span class="title-font font-medium md:text-xs md:mb-1 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Compartir</span>
+ 		<span class="title-font font-medium ml-1 md:ml-0 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Enlace</span>
+ 	</span>
 </button>
 
 <script is:inline>
   const copyToClipboard = function () {
     navigator.clipboard.writeText(window.location.href).then(() => {
-      // Show the sooner notification
       window.showSoonerNotification('Enlace copiado listo para Compartirlo!');
     }).catch(err => {
       console.error('Error al copiar: ', err);
     });
-}
+  }
 </script>

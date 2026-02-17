@@ -1,122 +1,192 @@
 ---
 import { translations } from '../translations';
-import LanguageSwitcher from './LanguageSwitcher.astro';
-import { Image } from 'astro:assets';
-import alfabotanicaImage from '../assets/img/alfabotanica.png';
 
 import { SITE_WHATSAPP } from '../consts';
 
 const message = encodeURIComponent(`Hola, estoy interesado en los productos.`);
 
 const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-med-cream backdrop-blur-md border-b border-med-clay">
-    <nav class="container mx-auto px-4 sm:px-6 py-4">
+<header class="sticky top-0 z-50 bg-surface-cream backdrop-blur-md border-b border-border-light">
+    <nav class="container mx-auto px-4 sm:px-6 py-4" aria-label="Navegación principal">
         <div class="flex justify-between items-center">
-            <a href="/#" class="w-64 sm:w-90 lg:w-96">
-				<Image src={alfabotanicaImage}
-				alt="Alfabotánica logo"
-				class="w-full h-full" />
-			</a>
+            <a href="/" class="focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 rounded-lg tracking-[0.3em] uppercase text-3xl" aria-label="Alfabotánica - Inicio">
+				 {"Alfabotánica"}
+            </a>
 
             {/* Desktop Navigation */}
-            <ul class="hidden lg:flex space-x-8 text-sm uppercase tracking-widest">
-				<li><a href="/delivery-policies" class="text-green-700  hover:text-med-terracotta transition" >{translations.es.delivery_policies}</a></li>
-                <li><a href="/#shop" class="text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
+            <ul class="hidden lg:flex items-center gap-8 text-sm uppercase tracking-widest">
                 <li>
-					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-[#4B5E45] hover:text-med-terracotta transition-colors">
-						<span class="icon-[garden--whatsapp-fill-12] w-6 h-6"></span> 
-					</a>
-				</li>
+                    <a 
+                        href="/delivery-policies" 
+                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth"
+                        aria-current={currentPath === '/delivery-policies' ? 'page' : undefined}
+                    >
+                        {translations.es.delivery_policies}
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/#shop" 
+                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth"
+                    >
+                        {translations.es.shop}
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href={whatsappUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth inline-flex items-center"
+                        aria-label="Contactar por WhatsApp"
+                    >
+                        <span class="icon-[garden--whatsapp-fill-12] w-6 h-6" aria-hidden="true"></span> 
+                    </a>
+                </li>
             </ul>
 
-    {/* Mobile Menu Button */}
-			<button class="lg:hidden p-2" id="mobile-menu-toggle" aria-label="Toggle mobile menu">
-				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-				</svg>
-			</button>
+            {/* Mobile Menu Toggle */}
+            <mobile-menu-toggle class="lg:hidden">
+                <button 
+                    class="lg:hidden p-2 text-brand-green hover:text-accent transition-colors duration-250 ease-smooth rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2" 
+                    aria-label="Abrir menú de navegación"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                >
+                    <span class="menu-icon block w-6 h-6" aria-hidden="true">
+                        <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </span>
+                    <span class="close-icon hidden w-6 h-6" aria-hidden="true">
+                        <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </span>
+                </button>
+            </mobile-menu-toggle>
         </div>
 
         {/* Mobile Navigation Menu */}
-        <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-med-clay pt-4">
-            <ul class="flex flex-col space-y-4 text-sm uppercase tracking-widest">
-                <li><a href="#shop" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="shop">{translations.es.shop}</a></li>
-				<li><a href="/delivery-policies" class="block py-2 text-green-700 hover:text-med-terracotta transition" data-lang-target="delivery_policies">{translations.es.delivery_policies}</a></li>
-                <li class="w-full flex justify-center gap-12 items-center pt-12 border-t border-med-clay">
-					<a href={`tel:+${SITE_WHATSAPP}`}
-						target="_blank" 
-						rel="noopener noreferrer" 
-						class="md:hidden text-[#4B5E45] hover:text-med-terracotta transition-colors">
-						<span class="icon-[topcoat--call] w-6 h-6"></span>
-					</a>
-					<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-[#4B5E45] hover:text-med-terracotta transition-colors">
-						<span class="icon-[garden--whatsapp-fill-12] w-6 h-6"></span> 
-					</a>
-				</li>
+        <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-border-light pt-4" aria-label="Menú de navegación móvil">
+            <ul class="flex flex-col gap-4 text-sm uppercase tracking-widest">
+                <li>
+                    <a 
+                        href="/#shop" 
+                        class="block py-2 text-brand-green hover:text-accent transition-colors duration-250 ease-smooth" 
+                    >
+                        {translations.es.shop}
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/delivery-policies" 
+                        class="block py-2 text-brand-green hover:text-accent transition-colors duration-250 ease-smooth" 
+                    >
+                        {translations.es.delivery_policies}
+                    </a>
+                </li>
+                <li class="flex justify-center gap-12 pt-8 border-t border-border-light">
+                    <a 
+                        href={`tel:+${SITE_WHATSAPP}`}
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth"
+                        aria-label="Llamar por teléfono"
+                    >
+                        <span class="icon-[topcoat--call] w-6 h-6" aria-hidden="true"></span>
+                    </a>
+                    <a 
+                        href={whatsappUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth"
+                        aria-label="Contactar por WhatsApp"
+                    >
+                        <span class="icon-[garden--whatsapp-fill-12] w-6 h-6" aria-hidden="true"></span> 
+                    </a>
+                </li>
             </ul>
-
-            {/* Language Switcher in Mobile Menu - Hidden on larger screens */}
-            <!-- <div class="lg:hidden mt-4 pt-4 border-t border-med-clay">
-                <div class="space-y-3">
-                    <span class="text-sm uppercase tracking-widest text-stone-600 font-medium">Language</span>
-                    <div class="grid grid-cols-5 gap-2">
-                        <button class="language-btn px-3 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:bg-med-sage hover:text-white text-sm font-medium" data-lang="es">ES</button>
-                        <button class="language-btn px-3 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:bg-med-sage hover:text-white text-sm font-medium" data-lang="en">EN</button>
-                        <button class="language-btn px-3 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:bg-med-sage hover:text-white text-sm font-medium" data-lang="fr">FR</button>
-                        <button class="language-btn px-3 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:bg-med-sage hover:text-white text-sm font-medium" data-lang="it">IT</button>
-                        <button class="language-btn px-2 py-2 rounded-lg transition-all duration-200 text-stone-600 hover:bg-med-sage hover:text-white text-xs font-medium" data-lang="zh">中文</button>
-                    </div>
-                </div>
-            </div> -->
-
-            {/* Mobile Cart Button */}
-            <!-- <div class="mt-4 pt-4 border-t border-med-clay">
-                <button class="flex items-center space-x-2 text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                    <span>Cart (0)</span>
-                </button>
-            </div> -->
         </div>
     </nav>
-
-    <script>
-        // Use astro:page-load to ensure script runs after view transitions
-        document.addEventListener('astro:page-load', () => {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuToggle && mobileMenu && mobileMenuToggle.parentNode) {
-                // Remove previous listeners if any (though astro:page-load handles it mostly)
-                const newToggle = mobileMenuToggle.cloneNode(true) as HTMLElement;
-                mobileMenuToggle.parentNode.replaceChild(newToggle, mobileMenuToggle);
-                
-                newToggle.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const isExpanded = !mobileMenu.classList.contains('hidden');
-                    newToggle.setAttribute('aria-expanded', isExpanded.toString());
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    const target = e.target as Node;
-                    if (!newToggle.contains(target) && !mobileMenu.contains(target)) {
-                        mobileMenu.classList.add('hidden');
-                        newToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-
-                // Close mobile menu when clicking on a navigation link
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        newToggle.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-        });
-    </script>
 </header>
+
+<script>
+    class MobileMenuToggle extends HTMLElement {
+        private button: HTMLButtonElement | null = null;
+        private menu: HTMLElement | null = null;
+        private isConnected = false;
+
+        connectedCallback() {
+            if (this.isConnected) return;
+            this.isConnected = true;
+
+            this.button = this.querySelector('button');
+            this.menu = document.getElementById('mobile-menu');
+
+            if (!this.button || !this.menu) return;
+
+            this.button.addEventListener('click', this.handleToggle.bind(this));
+            
+            // Close on link click
+            this.menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', this.handleClose.bind(this));
+            });
+
+            // Close on escape key
+            document.addEventListener('keydown', this.handleEscape.bind(this));
+        }
+
+        disconnectedCallback() {
+            this.button?.removeEventListener('click', this.handleToggle.bind(this));
+            document.removeEventListener('keydown', this.handleEscape.bind(this));
+        }
+
+        private handleToggle() {
+            if (!this.button || !this.menu) return;
+
+            const isExpanded = this.menu.classList.toggle('hidden') === false;
+            this.button.setAttribute('aria-expanded', isExpanded.toString());
+            
+            // Toggle icons
+            const menuIcon = this.button.querySelector('.menu-icon');
+            const closeIcon = this.button.querySelector('.close-icon');
+            
+            if (menuIcon && closeIcon) {
+                menuIcon.classList.toggle('hidden', isExpanded);
+                closeIcon.classList.toggle('hidden', !isExpanded);
+            }
+        }
+
+        private handleClose() {
+            if (!this.button || !this.menu) return;
+
+            this.menu.classList.add('hidden');
+            this.button.setAttribute('aria-expanded', 'false');
+            
+            const menuIcon = this.button.querySelector('.menu-icon');
+            const closeIcon = this.button.querySelector('.close-icon');
+            
+            if (menuIcon && closeIcon) {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        private handleEscape(e: KeyboardEvent) {
+            if (e.key !== 'Escape') return;
+            
+            const isExpanded = this.button?.getAttribute('aria-expanded') === 'true';
+            if (isExpanded) {
+                this.handleClose();
+                this.button?.focus();
+            }
+        }
+    }
+
+    customElements.define('mobile-menu-toggle', MobileMenuToggle);
+</script>

@@ -6,19 +6,21 @@ import ProductCard from './ProductCard.astro';
 const products = await getCollection('products');
 ---
 
-<section id="shop" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+<section id="shop" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24" aria-labelledby="shop-heading">
 	
     <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 sm:mb-12">
         <div class="max-w-xl">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-3" data-lang-target="openingCollection">{translations.es.openingCollection}</h2>
-            <p class="text-stone-500 italic text-sm sm:text-base leading-relaxed" data-lang-target="collectionSubtitle">{translations.es.collectionSubtitle}</p>
+            <h2 id="shop-heading" class="text-3xl sm:text-4xl lg:text-5xl mb-2 sm:mb-3 text-brand-green" data-lang-target="openingCollection">{translations.es.openingCollection}</h2>
+            <p class="text-text-muted italic text-sm sm:text-base leading-relaxed" data-lang-target="collectionSubtitle">{translations.es.collectionSubtitle}</p>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
 
 		{products.sort((a, b) => a.data.id - b.data.id).map((product) => (
-			<ProductCard product={product} key={product.id} />
+			<div role="listitem">
+			    <ProductCard product={product} key={product.id} />
+			</div>
 		))}
 
     </div>
