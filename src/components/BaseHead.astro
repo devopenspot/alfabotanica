@@ -48,7 +48,15 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
-const imageURL = new URL(heroImage?.src || SITE_LOGO, SITE_URL);
+
+// Build absolute image URL for OpenGraph
+let imageURL: URL;
+if (heroImage?.src) {
+    const imagePath = heroImage.src.startsWith('/') ? heroImage.src : `/${heroImage.src}`;
+    imageURL = new URL(imagePath, SITE_URL);
+} else {
+    imageURL = new URL(SITE_LOGO, SITE_URL);
+}
 
 // Enhanced title for better SEO
 const seoTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
