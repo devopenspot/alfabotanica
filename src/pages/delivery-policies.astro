@@ -2,21 +2,77 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_WHATSAPP } from '../consts';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { 
+	SITE_TITLE, 
+	SITE_DESCRIPTION, 
+	SITE_URL,
+	SITE_WHATSAPP,
+	SITE_EMAIL,
+	SITE_LOGO,
+	SITE_CITY,
+	SITE_DEPARTMENT,
+	SITE_COUNTRY,
+	SITE_LATITUDE,
+	SITE_LONGITUDE,
+	SITE_OPENING_HOURS,
+} from '../consts';
 import alfabotanicaImage from '../assets/img/alfabotanica.png';
 import { ClientRouter } from 'astro:transitions';
+import { generateStructuredData } from '../utils/seo';
 
 const pageTitle = "Guía de Compra | " + SITE_TITLE;
 const pageDescription = "Sigue estos sencillos pasos para realizar tu compra en Alfabotanica y recibir tus productos de forma rápida y segura.";
 
-const whatsappBaseUrl = `https://wa.me/${SITE_WHATSAPP}`;
-const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibilidad de un producto.");
+const faqSchema = generateStructuredData({
+	organization: {
+		name: SITE_TITLE,
+		url: SITE_URL,
+		logo: new URL(SITE_LOGO, SITE_URL).toString(),
+		phone: SITE_WHATSAPP,
+		email: SITE_EMAIL,
+	},
+	website: {
+		name: SITE_TITLE,
+		url: SITE_URL,
+		description: SITE_DESCRIPTION,
+	},
+	faq: {
+		mainEntity: [
+			{
+				question: "¿Cómo realizo una compra en Alfa Botánica?",
+				answer: "Para realizar una compra, primero debes contactarnos vía WhatsApp o llamada telefónica para verificar la disponibilidad del producto. Una vez confirmada la disponibilidad, te proporcionaremos los datos de pago y podrás proceder con la transacción."
+			},
+			{
+				question: "¿Cuáles son los métodos de pago aceptados?",
+				answer: "Aceptamos pagos exclusivamente a través de Nequi. Una vez que confirmemos la disponibilidad de tu producto, te proporcionaremos los datos de la cuenta Nequi para realizar el pago."
+			},
+			{
+				question: "¿Realizan envíos a nivel nacional?",
+				answer: "Sí, realizamos envíos a todo Colombia a través de Interrapidísimo. El costo del envío es asignado directamente por la agencia de transporte."
+			},
+			{
+				question: "¿Cómo puedo rastrear mi pedido?",
+				answer: "Una vez enviado tu pedido, te proporcionaremos el número de guía para que puedas rastrear tu pedido en tiempo real a través del sitio web de Interrapidísimo."
+			},
+			{
+				question: "¿Cuál es el tiempo de entrega?",
+				answer: "Los tiempos de entrega varían según la ubicación. Una vez confirmado el pago, procesamos el pedido y te enviamos el número de guía. El tiempo de tránsito depende de la agencia de transporte."
+			},
+			{
+				question: "¿Qué debo hacer después de realizar el pago?",
+				answer: "Después de realizar el pago, es obligatorio enviar el comprobante de transferencia exclusivamente vía WhatsApp. No procesaremos pedidos sin el comprobante de pago."
+			}
+		]
+	}
+});
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<BaseHead title={pageTitle} description={pageDescription} heroImage={alfabotanicaImage} />
+		<script type="application/ld+json" set:html={faqSchema} />
 		<ClientRouter />
 		<style>
 			.step-number {
@@ -61,10 +117,7 @@ const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibi
 								Antes de realizar cualquier pago, contáctanos vía <span class="font-bold text-brand-green">WhatsApp</span> o llamada telefónica. Confirmaremos en tiempo real si el producto está disponible.
 							</p>
 							<div class="flex">
-								<a href={`${whatsappBaseUrl}?text=${contactMessage}`} class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-brand-green text-white rounded-full text-sm sm:text-base font-bold hover:bg-brand-green-dark transition-all duration-250 ease-smooth transform hover:-translate-y-0.5 shadow-lg shadow-green-900/20 active:scale-95">
-									<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.52.909 3.012 1.388 4.706 1.389 5.233 0 9.493-4.258 9.495-9.492.001-2.534-1.011-4.931-2.833-6.753s-4.219-2.835-6.753-2.835c-5.233 0-9.494 4.259-9.496 9.492-.001 1.761.479 3.473 1.391 4.981l-.919 3.36 3.409-.892zm10.957-5.422c-.3-.149-1.77-.874-2.044-.974s-.474-.149-.674.15-.774.974-.949 1.174-.35.224-.65.074c-3-.15-4.298-1.103-5.321-2.222-1.125-1.233-1.631-2.316-1.782-2.615s-.015-.461.135-.61c.134-.135.3-.35.45-.524s.199-.299.3-.499.05-.374-.025-.524-.674-1.623-.924-2.221c-.244-.582-.491-.503-.674-.512-.174-.008-.374-.01-.574-.01s-.524.074-.799.374c-.275.3-.1.1.1.1.1.1.1.1.1.1s.1.1.1.349c1.074 1.149 2.774 4.12 2.774 4.12s1.424 2.373 3.774 3.348c.624.261 1.1.417 1.474.536.626.2 1.196.172 1.646.105.5-.075 1.77-.723 2.02-1.422s.25-1.297.175-1.422-.275-.224-.575-.373z"/></svg>
-									Consultar por WhatsApp
-								</a>
+								<WhatsAppButton />
 							</div>
 						</div>
 					</div>
@@ -180,9 +233,7 @@ const contactMessage = encodeURIComponent("Hola! Quisiera consultar la disponibi
 					<div class="inline-block w-full sm:w-auto p-8 sm:p-12 bg-white rounded-[2rem] sm:rounded-[3rem] shadow-xl shadow-stone-200/30 border border-gray-200 sm:max-w-lg mx-auto">
 						<h4 class="text-xl sm:text-2xl font-bold text-text-main mb-3 sm:mb-4 font-lora italic">¿Listo para empezar?</h4>
 						<p class="text-text-muted mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base">Contáctanos ahora y te guiaremos en cada paso de tu compra.</p>
-						<a href={`${whatsappBaseUrl}?text=${contactMessage}`} class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 sm:py-5 font-bold text-white transition-all duration-250 ease-smooth bg-brand-green rounded-full hover:bg-brand-green-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 shadow-2xl shadow-green-900/30 active:scale-95">
-							Hablar con un Asesor
-						</a>
+						<WhatsAppButton variant="full" />
 					</div>
 				</div>
 			</div>

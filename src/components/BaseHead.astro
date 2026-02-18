@@ -1,6 +1,4 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/hero.jpg';
@@ -14,8 +12,16 @@ import {
 	SITE_LOGO,
 	SITE_TWITTER_CREATOR,
 	SITE_TWITTER_SITE,
+	SITE_CITY,
+	SITE_DEPARTMENT,
+	SITE_COUNTRY,
+	SITE_LATITUDE,
+	SITE_LONGITUDE,
+	SITE_OPENING_HOURS,
+	SITE_PRICE_CURRENCY,
 } from '../consts';
 import { ClientRouter } from "astro:transitions";
+import { generateStructuredData } from '../utils/seo';
 
 interface Props {
 	title?: string;
@@ -28,8 +34,11 @@ interface Props {
 	currency?: string;
 	availability?: 'in_stock' | 'out_of_stock' | 'preorder';
 	category?: string;
+	brand?: string;
+	sku?: string;
 	publishedTime?: string;
 	modifiedTime?: string;
+	noindex?: boolean;
 }
 
 const {
@@ -40,16 +49,18 @@ const {
 	keywords = [],
 	type = 'website',
 	price,
-	currency = 'COP',
+	currency = SITE_PRICE_CURRENCY,
 	availability = 'in_stock',
 	category,
+	brand = SITE_TITLE,
+	sku,
 	publishedTime,
 	modifiedTime,
+	noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 
-// Build absolute image URL for OpenGraph
 let imageURL: URL;
 if (heroImage?.src) {
     const imagePath = heroImage.src.startsWith('/') ? heroImage.src : `/${heroImage.src}`;
@@ -58,76 +69,53 @@ if (heroImage?.src) {
     imageURL = new URL(SITE_LOGO, SITE_URL);
 }
 
-// Enhanced title for better SEO
 const seoTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 
-// Generate structured data for different page types
-const generateStructuredData = () => {
-	const baseData: any = {
-		"@context": "https://schema.org",
-		"@graph": [
-			{
-				"@type": "Organization",
-				"@id": `${SITE_URL}/#organization`,
-				"name": SITE_TITLE,
-				"url": SITE_URL,
-				"logo": {
-					"@type": "ImageObject",
-					"url": new URL(SITE_LOGO, SITE_URL).toString()
-				},
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"telephone": `+${SITE_WHATSAPP}`,
-					"contactType": "customer service",
-					"availableLanguage": "Spanish"
-				},
-				"address": {
-					"@type": "PostalAddress",
-					"addressLocality": "Colombia",
-					"addressCountry": "CO"
-				},
-				"sameAs": [
-					`https://wa.me/${SITE_WHATSAPP}`
-				]
-			},
-			{
-				"@type": "WebSite",
-				"@id": `${SITE_URL}/#website`,
-				"url": SITE_URL,
-				"name": SITE_TITLE,
-				"description": SITE_DESCRIPTION,
-				"publisher": {
-					"@id": `${SITE_URL}/#organization`
-				},
-				"inLanguage": "es-CO"
-			}
-		]
-	};
-
-	if (type === 'product' && price) {
-		baseData["@graph"].push({
-			"@type": "Product",
-			"name": title,
-			"description": description,
-			"image": imageURL.toString(),
-			"category": category || "Botanical Products",
-			"offers": {
-				"@type": "Offer",
-				"price": price,
-				"priceCurrency": currency,
-				"availability": `https://schema.org/${availability === 'in_stock' ? 'InStock' : 'OutOfStock'}`,
-				"seller": {
-					"@id": `${SITE_URL}/#organization`
-				}
-			}
-		});
-	}
-
-	return JSON.stringify(baseData);
-};
+const structuredData = generateStructuredData({
+	organization: {
+		name: SITE_TITLE,
+		url: SITE_URL,
+		logo: new URL(SITE_LOGO, SITE_URL).toString(),
+		phone: SITE_WHATSAPP,
+		email: SITE_EMAIL,
+	},
+	website: {
+		name: SITE_TITLE,
+		url: SITE_URL,
+		description: SITE_DESCRIPTION,
+	},
+	localBusiness: {
+		name: SITE_TITLE,
+		url: SITE_URL,
+		logo: new URL(SITE_LOGO, SITE_URL).toString(),
+		phone: SITE_WHATSAPP,
+		email: SITE_EMAIL,
+		address: {
+			addressLocality: SITE_CITY,
+			addressRegion: SITE_DEPARTMENT,
+			addressCountry: SITE_COUNTRY,
+		},
+		geo: {
+			latitude: SITE_LATITUDE,
+			longitude: SITE_LONGITUDE,
+		},
+		openingHours: SITE_OPENING_HOURS,
+		priceRange: '$$',
+	},
+	product: type === 'product' && price ? {
+		name: title,
+		description: description,
+		image: imageURL.toString(),
+		category: category || 'Botanical Products',
+		price: price,
+		currency: currency,
+		availability: availability,
+		brand: brand,
+		sku: sku,
+	} : undefined,
+});
 ---
 
-<!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
@@ -146,26 +134,26 @@ const generateStructuredData = () => {
 <meta name="publisher" content={SITE_OWNER} />
 {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
 
-<!-- Enhanced SEO Meta Tags -->
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
 <meta name="googlebot" content="index, follow" />
 <meta name="bingbot" content="index, follow" />
 <meta name="language" content="es-CO" />
-<meta name="geo.region" content="CO-ATL" />
+<meta name="geo.region" content={`CO-${SITE_DEPARTMENT.toUpperCase().slice(0, 2)}`} />
+<meta name="geo.placename" content={SITE_CITY} />
+<meta name="geo.position" content={`${SITE_LATITUDE};${SITE_LONGITUDE}`} />
+<meta name="ICBM" content={`${SITE_LATITUDE}, ${SITE_LONGITUDE}`} />
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" as="style" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
 <title>{seoTitle}</title>
 <meta name="title" content={seoTitle} />
 <meta name="description" content={description} />
 
-<!-- Enhanced Open Graph / Facebook -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={seoTitle} />
@@ -177,21 +165,29 @@ const generateStructuredData = () => {
 <meta property="og:site_name" content={SITE_TITLE} />
 <meta property="og:locale" content="es_CO" />
 
-<!-- Business Information for WhatsApp and Social -->
 <meta property="business:contact_data:phone_number" content={`+${SITE_WHATSAPP}`} />
 <meta property="business:contact_data:country_name" content="Colombia" />
 
-<!-- Product-specific Open Graph tags -->
 {type === 'product' && price && (
 	<>
 		<meta property="product:price:amount" content={price} />
 		<meta property="product:price:currency" content={currency} />
 		<meta property="product:availability" content={availability} />
 		{category && <meta property="product:category" content={category} />}
+		{brand && <meta property="product:brand" content={brand} />}
+		{sku && <meta property="product:sku" content={sku} />}
 	</>
 )}
 
-<!-- Enhanced Twitter Card -->
+{(type === 'article' || type === 'product') && publishedTime && (
+	<meta property="article:published_time" content={publishedTime} />
+)}
+{(type === 'article' || type === 'product') && modifiedTime && (
+	<meta property="article:modified_time" content={modifiedTime} />
+)}
+<meta property="article:author" content={author} />
+{category && <meta property="article:section" content={category} />}
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content={SITE_TWITTER_SITE} />
 <meta name="twitter:creator" content={SITE_TWITTER_CREATOR} />
@@ -201,19 +197,16 @@ const generateStructuredData = () => {
 <meta name="twitter:image" content={imageURL} />
 <meta name="twitter:image:alt" content={title} />
 
-<!-- WhatsApp Optimization -->
 <meta property="og:phone_number" content={SITE_WHATSAPP} />
 <meta name="whatsapp:title" content={seoTitle} />
 <meta name="whatsapp:description" content={description} />
 <meta name="whatsapp:image" content={imageURL} />
 
-<!-- Additional SEO enhancements -->
 <meta name="theme-color" content="#4B5E45" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
-<!-- Structured Data -->
-<script type="application/ld+json" set:html={generateStructuredData()} />
+<script type="application/ld+json" set:html={structuredData} />
 
 <ClientRouter />

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://alfabotanica.com/sitemap-index.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
