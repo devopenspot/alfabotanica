@@ -1,0 +1,38 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	heroImage?: ImageMetadata;
+	author?: string;
+	keywords?: string[];
+	type?: 'website' | 'article' | 'product';
+	price?: string;
+	currency?: string;
+	availability?: 'in_stock' | 'out_of_stock' | 'preorder';
+	category?: string;
+	publishedTime?: string;
+	modifiedTime?: string;
+	bodyClass?: string;
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead {...props} />
+	</head>
+	<body class:list={['min-h-screen bg-white text-text-main', props.bodyClass]}>
+		<Header />
+		<main class="flex-1" transition:persist="main-content" id="main-content">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

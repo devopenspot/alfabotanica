@@ -1,5 +1,6 @@
 ---
 id: 1
+slug: "aceite-romero"
 name: "Aceite"
 title: "Natural"
 description: "Un extracto botánico premium conocido por sus propiedades calmantes. Perfecto para la relajación y el alivio del estrés."

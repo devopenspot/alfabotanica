@@ -7,6 +7,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://alfabotanica.vercel.app/',
+	site: 'https://alfabotanica.com',
 	integrations: [mdx(), sitemap(), tailwind()],
 });

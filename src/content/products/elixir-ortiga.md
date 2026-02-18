@@ -1,5 +1,6 @@
 ---
 id: 6
+slug: "elixir-ortiga"
 name: "Elíxir"
 title: "Suplemento"
 description: "El Elíxir de Ortiga es un suplemento natural diseñado para apoyar el bienestar general. Elaborado con extracto puro de ortiga, ayuda a fortalecer el sistema inmunológico, desintoxicar el cuerpo y promover la vitalidad.."

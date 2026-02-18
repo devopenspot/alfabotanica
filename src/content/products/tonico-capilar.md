@@ -1,5 +1,6 @@
 ---
 id: 2
+slug: "tonico-capilar"
 name: "Tónico"
 title: "Capilar"
 description: "Un tónico revitalizante hecho de extracto de romero, perfecto para uso diario. Mejora la salud del cabello y promueve la circulación del cuero cabelludo."

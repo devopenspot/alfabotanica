@@ -1,32 +1,21 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Shop from '../components/Shop.astro';
 import CallToAction from '../components/CallToAction.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import alfabotanicaImage from '../assets/img/alfabotanica.png';
 ---
 
-<!doctype html>
-<html lang="es">
-	<head>
-		<BaseHead 
-			title={SITE_TITLE} 
-			description={SITE_DESCRIPTION} 
-			heroImage={alfabotanicaImage} 
-			type="website"
-			keywords={["botánica", "natural", "cuidado personal", "pureza", "plantas"]}
-		/>
-	</head>
-	<body class="min-h-screen bg-white text-text-main">
-		<Header />
-		   <main class="flex-1" transition:persist="main-content" id="main-content">
-			<Hero />
-			<Shop />
-			<CallToAction />
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout 
+	title={SITE_TITLE} 
+	description={SITE_DESCRIPTION} 
+	heroImage={alfabotanicaImage} 
+	type="website"
+	keywords={["botánica", "natural", "cuidado personal", "pureza", "plantas"]}
+	bodyClass="bg-white text-text-main"
+>
+	<Hero />
+	<Shop />
+	<CallToAction />
+</BaseLayout>

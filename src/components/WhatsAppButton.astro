@@ -2,25 +2,28 @@
 import { SITE_WHATSAPP } from '../consts';
 
 type Props = {
-  productName: string;
-  sku: string;
+  productName?: string;
+  sku?: string;
+  variant?: 'default' | 'full';
 };
 
-const { productName, sku }: Props = Astro.props;
-const message = encodeURIComponent(`Hola, estoy interesado en ${productName}. Me gustaría recibir más información al respecto.`);
+const { productName = '', sku = '', variant = 'default' }: Props = Astro.props;
+const message = productName 
+  ? encodeURIComponent(`Hola, estoy interesado en ${productName}. Me gustaría recibir más información al respecto.`)
+  : encodeURIComponent("Hola! Quisiera consultar la disponibilidad de un producto.");
 const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
 ---
 
 <a
-  href={whatsappUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  class="flex bg-white border border-border-light py-3 px-5 rounded-lg items-center hover:bg-brand-green hover:text-white hover:border-brand-green focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 transition-all duration-250 ease-smooth"
-  aria-label="Consultar producto por WhatsApp"
->
-	<span class="icon-[garden--whatsapp-fill-12] mr-4 w-5 h-5 text-brand-green group-hover:text-white"></span>
-	<span class="flex items-start flex-row md:flex-col leading-none">
-		<span class="title-font font-medium md:text-xs md:mb-1 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Consultar Por</span>
-		<span class="title-font font-medium ml-1 md:ml-0 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Whatsapp</span>
-	</span>
-</a>
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group flex bg-white border border-border-light py-3 px-5 rounded-lg items-center hover:bg-brand-green hover:text-white hover:border-brand-green focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 transition-all duration-250 ease-smooth"
+    aria-label={productName ? "Consultar producto por WhatsApp" : "Contactar por WhatsApp"}
+  >
+    <span class="icon-[garden--whatsapp-fill-12] mr-4 w-5 h-5 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth"></span>
+    <span class="flex items-start flex-row md:flex-col leading-none">
+      <span class="title-font font-medium md:text-xs md:mb-1 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Consultar Por</span>
+      <span class="title-font font-medium ml-1 md:ml-0 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Whatsapp</span>
+    </span>
+  </a>

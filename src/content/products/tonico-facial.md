@@ -1,5 +1,6 @@
 ---
 id: 4
+slug: "tonico-facial"
 name: "Tónico"
 title: "Facial"
 description: "Un tónico suave infundido con manzanilla ideal para pieles sensibles. Calma la irritación y reduce el enrojecimiento."
