@@ -3,7 +3,16 @@ import { translations } from '../translations';
 import { getCollection } from 'astro:content';
 import ProductCard from './ProductCard.astro';
 
+interface Props {
+	excludeId?: number;
+}
+
+const { excludeId } = Astro.props;
+
 const products = await getCollection('products');
+const filteredProducts = excludeId 
+	? products.filter(p => p.data.id !== excludeId)
+	: products;
 ---
 
 <section id="shop" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24" aria-labelledby="shop-heading">
@@ -17,7 +26,7 @@ const products = await getCollection('products');
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
 
-		{products.sort((a, b) => a.data.id - b.data.id).map((product) => (
+		{filteredProducts.sort((a, b) => a.data.id - b.data.id).map((product) => (
 			<div role="listitem">
 			    <ProductCard product={product} key={product.id} />
 			</div>
