@@ -72,8 +72,8 @@ const currentPath = Astro.url.pathname;
         </div>
 
         {/* Mobile Navigation Menu */}
-        <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-border-light pt-4" aria-label="Menú de navegación móvil">
-            <ul class="flex flex-col gap-4 text-sm uppercase tracking-widest">
+        <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4 border-t border-border-light pt-4 overflow-x-hidden" aria-label="Menú de navegación móvil">
+            <ul class="flex flex-col gap-4 text-sm uppercase tracking-wide sm:tracking-widest">
                 <li>
                     <a 
                         href="/#shop" 
@@ -90,7 +90,7 @@ const currentPath = Astro.url.pathname;
                         {translations.es.delivery_policies}
                     </a>
                 </li>
-                <li class="flex justify-center gap-12 pt-8 border-t border-border-light">
+                <li class="flex justify-center gap-8 sm:gap-12 pt-8 border-t border-border-light">
                     <a 
                         href={`tel:+${SITE_WHATSAPP}`}
                         target="_blank" 
