@@ -117,7 +117,7 @@ const faqSchema = generateStructuredData({
 								Antes de realizar cualquier pago, contáctanos vía <span class="font-bold text-brand-green">WhatsApp</span> o llamada telefónica. Confirmaremos en tiempo real si el producto está disponible.
 							</p>
 							<div class="flex">
-								<WhatsAppButton />
+								<WhatsAppButton size="md" label="Disponibilidad" sublabel="Consultar" />
 							</div>
 						</div>
 					</div>
@@ -146,7 +146,7 @@ const faqSchema = generateStructuredData({
 							<p class="text-text-muted leading-relaxed mb-6 text-base sm:text-lg">
 								Para procesar tu pedido, es <span class="font-bold border-b-2 border-red-200">obligatorio</span> cumplir con lo siguiente:
 							</p>
-							<div class="grid gap-3 sm:gap-4 mb-2">
+							<div class="grid gap-3 sm:gap-4 mb-6">
 								<div class="flex items-start sm:items-center p-4 bg-gray-50 rounded-2xl border border-gray-200 transition-colors duration-250 ease-smooth hover:bg-gray-100/50">
 									<div class="w-8 h-8 sm:w-10 sm:h-10 bg-brand-green/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
 										<svg class="w-5 h-5 sm:w-6 sm:h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
@@ -159,6 +159,9 @@ const faqSchema = generateStructuredData({
 									</div>
 									<span class="text-text-main font-medium text-sm sm:text-base">El envío debe ser exclusivamente vía WhatsApp.</span>
 								</div>
+							</div>
+							<div class="flex justify-start">
+								<WhatsAppButton size="sm" label="Enviar Comprobante" className="bg-brand-green text-white hover:bg-brand-green-dark border-transparent" />
 							</div>
 						</div>
 					</div>
@@ -202,13 +205,11 @@ const faqSchema = generateStructuredData({
 							</p>
 						</div>
 					</div>
-				<div class="mt-12 bg-white rounded-[2.5rem] p-8 sm:p-12 border border-gray-200 shadow-xl shadow-stone-200/20 relative overflow-hidden">
+				<div class="mt-12 bg-white rounded-[2.5rem] p-8 sm:p-12 border border-stone-100 shadow-2xl shadow-stone-200/40 relative overflow-hidden">
 					<div class="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 rounded-bl-full -mr-16 -mt-16"></div>
 					<h3 class="text-2xl sm:text-3xl font-bold text-text-main mb-8 font-lora italic relative z-10">Políticas de Envío</h3>
 					
 					<div class="grid gap-6 relative z-10">
-						
-
 						<div class="flex items-start gap-4 p-5 rounded-2xl bg-gray-50/50 hover:bg-gray-50 transition-colors duration-250 ease-smooth border border-transparent hover:border-gray-200">
 							<div class="w-10 h-10 bg-brand-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
 								<span class="text-brand-green font-bold">1</span>
@@ -230,10 +231,10 @@ const faqSchema = generateStructuredData({
 				</div>
 				
 				<div class="mt-16 sm:mt-24 text-center">
-					<div class="inline-block w-full sm:w-auto p-8 sm:p-12 bg-white rounded-[2rem] sm:rounded-[3rem] shadow-xl shadow-stone-200/30 border border-gray-200 sm:max-w-lg mx-auto">
+					<div class="inline-block w-full sm:w-auto p-8 sm:p-12 bg-white rounded-[2rem] sm:rounded-[3rem] shadow-2xl shadow-stone-200/40 border border-stone-100 sm:max-w-lg mx-auto">
 						<h4 class="text-xl sm:text-2xl font-bold text-text-main mb-3 sm:mb-4 font-lora italic">¿Listo para empezar?</h4>
 						<p class="text-text-muted mb-8 sm:mb-10 leading-relaxed text-sm sm:text-base">Contáctanos ahora y te guiaremos en cada paso de tu compra.</p>
-						<WhatsAppButton variant="full" />
+						<WhatsAppButton size="lg" variant="full" label="Chatear Ahora" sublabel="Asesoría" />
 					</div>
 				</div>
 			</div>

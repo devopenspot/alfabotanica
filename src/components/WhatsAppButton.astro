@@ -4,26 +4,71 @@ import { SITE_WHATSAPP } from '../consts';
 type Props = {
   productName?: string;
   sku?: string;
+  size?: 'sm' | 'md' | 'lg';
   variant?: 'default' | 'full';
+  label?: string;
+  sublabel?: string;
+  className?: string;
 };
 
-const { productName = '', sku = '', variant = 'default' }: Props = Astro.props;
+const { 
+  productName = '', 
+  sku = '', 
+  size = 'md', 
+  variant = 'default',
+  label,
+  sublabel,
+  className = ''
+}: Props = Astro.props;
+
 const message = productName 
   ? encodeURIComponent(`Hola, estoy interesado en ${productName}. Me gustaría recibir más información al respecto.`)
   : encodeURIComponent("Hola! Quisiera consultar la disponibilidad de un producto.");
 const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
+
+const sizeClasses = {
+  sm: 'py-2 px-3 text-xs gap-2',
+  md: 'py-3 px-5 text-sm gap-3 sm:gap-4',
+  lg: 'py-4 px-8 text-base lg:text-lg gap-4 sm:gap-6',
+};
+
+const iconSizes = {
+  sm: 'w-4 h-4',
+  md: 'w-5 h-5',
+  lg: 'w-6 h-6 lg:w-8 lg:h-8',
+};
+
+const displayLabel = label || (size === 'sm' ? 'WhatsApp' : 'WhatsApp');
+const displaySublabel = sublabel || (size === 'sm' ? '' : 'Consultar Por');
 ---
 
 <a
     href={whatsappUrl}
     target="_blank"
     rel="noopener noreferrer"
-    class="group flex bg-white border border-border-light py-3 px-5 rounded-lg items-center hover:bg-brand-green hover:text-white hover:border-brand-green focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 transition-[background-color,color,border-color,box-shadow] duration-250 ease-smooth"
-    aria-label={productName ? "Consultar producto por WhatsApp" : "Contactar por WhatsApp"}
+    class:list={[
+      "group inline-flex bg-white border border-border-light rounded-lg items-center justify-center hover:bg-brand-green hover:text-white hover:border-brand-green focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 transition-[background-color,color,border-color,box-shadow] duration-250 ease-smooth font-medium",
+      sizeClasses[size],
+      variant === 'full' && 'w-full',
+      className
+    ]}
+    aria-label={productName ? `Consultar ${productName} por WhatsApp` : "Contactar por WhatsApp"}
   >
-    <span class="icon-[garden--whatsapp-fill-12] mr-4 w-5 h-5 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth"></span>
-    <span class="flex items-start flex-row md:flex-col leading-none">
-      <span class="title-font font-medium md:text-xs md:mb-1 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Consultar Por</span>
-      <span class="title-font font-medium ml-1 md:ml-0 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth">Whatsapp</span>
+    <span class:list={["icon-[garden--whatsapp-fill-12] text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth", iconSizes[size]]}></span>
+    <span class="flex flex-row md:flex-col leading-none items-start">
+      {size === 'sm' ? (
+        <span class="text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth whitespace-nowrap">{displayLabel}</span>
+      ) : (
+        <>
+          {displaySublabel && (
+            <span class="text-[0.65em] uppercase tracking-widest opacity-80 mb-0.5 text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth whitespace-nowrap">
+              {displaySublabel}
+            </span>
+          )}
+          <span class="text-brand-green group-hover:text-white transition-colors duration-250 ease-smooth whitespace-nowrap">
+            {displayLabel}
+          </span>
+        </>
+      )}
     </span>
   </a>

@@ -1,12 +1,10 @@
 ---
 import { translations } from '../translations';
-
 import { SITE_WHATSAPP } from '../consts';
+import WhatsAppButton from './WhatsAppButton.astro';
 
 const message = encodeURIComponent(`Hola, estoy interesado en los productos.`);
-
 const whatsappUrl = `https://wa.me/${SITE_WHATSAPP}?text=${message}`;
-
 const currentPath = Astro.url.pathname;
 ---
 
@@ -37,15 +35,7 @@ const currentPath = Astro.url.pathname;
                     </a>
                 </li>
                 <li>
-                    <a 
-                        href={whatsappUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth inline-flex items-center"
-                        aria-label="Contactar por WhatsApp"
-                    >
-                        <span class="icon-[garden--whatsapp-fill-12] w-6 h-6" aria-hidden="true"></span> 
-                    </a>
+                    <WhatsAppButton size="sm" variant="default" className="border-none bg-transparent hover:bg-brand-green/5" />
                 </li>
             </ul>
 
@@ -90,25 +80,18 @@ const currentPath = Astro.url.pathname;
                         {translations.es.delivery_policies}
                     </a>
                 </li>
-                <li class="flex justify-center gap-8 sm:gap-12 pt-8 border-t border-border-light">
+                <li class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 border-t border-border-light">
                     <a 
                         href={`tel:+${SITE_WHATSAPP}`}
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth"
+                        class="flex items-center justify-center w-full sm:w-auto px-4 py-2 border border-brand-green/20 rounded-lg text-brand-green hover:bg-brand-green/5 transition-colors duration-250 ease-smooth"
                         aria-label="Llamar por teléfono"
                     >
-                        <span class="icon-[topcoat--call] w-6 h-6" aria-hidden="true"></span>
+                        <span class="icon-[topcoat--call] w-5 h-5 mr-3" aria-hidden="true"></span>
+                        <span class="text-xs uppercase tracking-widest">Llamar</span>
                     </a>
-                    <a 
-                        href={whatsappUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        class="text-brand-green hover:text-accent transition-colors duration-250 ease-smooth"
-                        aria-label="Contactar por WhatsApp"
-                    >
-                        <span class="icon-[garden--whatsapp-fill-12] w-6 h-6" aria-hidden="true"></span> 
-                    </a>
+                    <WhatsAppButton size="md" variant="full" className="sm:w-auto" />
                 </li>
             </ul>
         </div>
@@ -119,11 +102,11 @@ const currentPath = Astro.url.pathname;
     class MobileMenuToggle extends HTMLElement {
         private button: HTMLButtonElement | null = null;
         private menu: HTMLElement | null = null;
-        private isConnected = false;
+        private _isInitialized = false;
 
         connectedCallback() {
-            if (this.isConnected) return;
-            this.isConnected = true;
+            if (this._isInitialized) return;
+            this._isInitialized = true;
 
             this.button = this.querySelector('button');
             this.menu = document.getElementById('mobile-menu');
