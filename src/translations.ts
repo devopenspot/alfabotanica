@@ -19,10 +19,6 @@ export const translations = {
         "rosemaryTonicDesc": "Fortaleza y Vitalidad • 60ml - 120ml",
         "chamomileTonicTitle": "Tónico Facial de Manzanilla",
         "chamomileTonicDesc": "Calma y Tonifica • 60ml - 120ml",
-        "painkillerCreamTitle": "Crema: Romero & Manzanilla",
-        "painkillerCreamDesc": "Alivio Natural y Bienestar • 100ml",
-        "solarScreenTitle": "Protector Solar: Manzanilla & Caléndula",
-        "solarScreenDesc": "Protección Mineral Natural • 60ml - 120ml",
         // Call to Action Section
         "callToActionTitle": "Descubre el Poder de lo Natural.",
         "callToActionText": "Transforma tu rutina de cuidado personal con productos botánicos de alta calidad. Explora nuestra colección y encuentra el bienestar que mereces.",
