@@ -1,5 +1,6 @@
 ---
 id: 5
+slug: "tonico-protector-solar"
 name: "Tónico"
 title: "Protector Solar"
 description: "Una pantalla protectora para proteger tu piel de los rayos UV dañinos. Fórmula ligera y no grasa."

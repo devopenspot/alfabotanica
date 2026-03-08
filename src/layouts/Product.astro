@@ -13,7 +13,7 @@ type Props = CollectionEntry<'products'>['data'];
 
 const { id, name, title, description, heroImage, price, benefits, extracts, useMode, ...rest } = Astro.props;
 
-const seoDescription = description?.slice(0, 160) + (description?.length > 160 ? '...' : '');
+const seoDescription = description?.slice(0, 160) + (description?.length > 160 ? '…' : '');
 const seoTitle = `${name} - ${title}`;
 
 const displayPrice = price?.[0]?.split('$')?.[1]?.replace(/\./g, '') || "";
@@ -32,30 +32,17 @@ const displayPrice = price?.[0]?.split('$')?.[1]?.replace(/\./g, '') || "";
 		/>
 	</head>
 
-	<body class="bg-surface-alt text-brand-green">
+	<body class="bg-surface-alt text-brand-green relative">
+		<a href="#main-content" class="skip-link">Saltar al contenido</a>
 		<Header />
 
-		<main class="text-brand-green overflow-hidden">
-
+		<main id="main-content" class="text-brand-green overflow-hidden">
 			<!-- Hero Section -->
-			<!-- <div class="w-full bg-brand-green relative overflow-hidden py-12 lg:py-20 flex flex-col items-center">
-				<div class="absolute inset-0 opacity-10 pointer-events-none">
-					<div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
-				</div>
-				
-				<div class="relative z-10 text-center px-4">
-					<h1 
-						class="font-playfair text-white text-4xl md:text-6xl lg:text-7xl tracking-widest uppercase mb-4 drop-shadow-sm"
-						transition:name={`product-name-${id}`}
-					>
-						{name}
-					</h1>
-					<div class="h-px w-24 bg-white/30 mx-auto my-6"></div>
-					<span class="font-lora italic text-white/90 text-sm md:text-base tracking-[0.3em] uppercase block">
-						{title}
-					</span>
-				</div>
-			</div> -->
+			<div class="sr-only">
+				<h1 transition:name={`product-name-${id}`}>
+					{name} - {title}
+				</h1>
+			</div>
 
 			<!-- Product Details -->
 			<div class="container mx-auto px-4 py-12 lg:py-16 max-w-7xl">

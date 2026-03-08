@@ -9,7 +9,7 @@ const { product } = Astro.props as {
 const slug = product.id;
 ---
 
-<article class="bg-white border border-border-light rounded-2xl pb-6 shadow-sm hover:shadow-xl transition-all duration-400 ease-smooth overflow-hidden group flex flex-col h-full">
+<article class="bg-white border border-border-light rounded-2xl pb-6 shadow-sm hover:shadow-xl transition-[border-color,box-shadow,background-color] duration-400 ease-smooth overflow-hidden group flex flex-col h-full">
     <a 
         href={`/products/${slug}`} 
         class="block flex-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 rounded-t-2xl"

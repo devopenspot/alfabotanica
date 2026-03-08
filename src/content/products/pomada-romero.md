@@ -1,5 +1,6 @@
 ---
 id: 3
+slug: "pomada-romero"
 name: "Pomada"
 title: "Natural"
 description: "Una crema calmante diseñada para aliviar molestias musculares y articulares. Contiene ingredientes antiinflamatorios naturales."
