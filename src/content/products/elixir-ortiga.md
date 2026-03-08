@@ -15,7 +15,7 @@ benefits:
   - "Aumenta la energía y la vitalidad general"
 extracts:
   - "Ortiga"
-useMode: "Tomar 1-2 a dos copas al día. Preferiblemente en ayunas y en la noche"
+useMode: "Tomar 1-2 a dos copas al día."
 ---
 
 El Elíxir de Ortiga es un suplemento natural diseñado para apoyar el bienestar general. Elaborado con extracto puro de ortiga, ayuda a fortalecer el sistema inmunológico, desintoxicar el cuerpo y promover la vitalidad.
@@ -31,4 +31,4 @@ El Elíxir de Ortiga es un suplemento natural diseñado para apoyar el bienestar
 - Aumenta la energía y la vitalidad general.
 
 #### Modo de Uso
-Tomar 1-2 a dos copas al día. Preferiblemente en ayunas y en la noche.
+Tomar 1-2 a dos copas al día.
